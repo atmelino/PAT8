@@ -4,19 +4,24 @@ function onload_function() {
 	root_path = window.location.pathname;
 	// printlnMessage('messages', 'index.js: root path ' + root_path);
 
-	// load most recent page
-	page = getCookie('page');
-	title = getCookie('title');
-	// printlnMessage('messages', 'index.js: from cookies: ' + page + ' ' +
-	// title);
-	if (page == null) {
-		page = 'home.html';
-		title = 'JAT';
+	cookies = false;
+	if (cookies) {
+		// load most recent page
+		page = getCookie('page');
+		title = getCookie('title');
+		// printlnMessage('messages', 'index.js: from cookies: ' + page + ' ' +
+		// title);
+		if (page == null) {
+			page = 'home.php';
+			title = 'PAT8';
+		}
+
+		$('#iframe_a').attr('src', page);
+		document.title = title;
+	} else {
+		$('#iframe_a').attr('src', 'home.php');
+		title = 'PAT8';
 	}
-
-	$('#iframe_a').attr('src', page);
-	document.title = title;
-
 }
 
 (function($) {
@@ -50,27 +55,14 @@ function onload_function() {
 			autoResize('iframe_a');
 
 		});
-		
-		
-		$("#orbit01").click(function() {
-			printlnMessage('messages', "orbit01");
-			setSpeed();
-		});
-		
 
 	});
-
+	$("#orbit01").click(function() {
+		printlnMessage('messages', "orbit01");
+		setSpeed();
+	});
 
 }(jQuery));
-
-
-
-function myFunction()
-{
-	printlnMessage('messages', "orbit01");
-	
-
-}
 
 
 

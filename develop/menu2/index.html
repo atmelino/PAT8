@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset='UTF-8'>
+
+<title>CSS Tabs</title>
+<script type="text/JavaScript" src="../../lib/jquery-2.1.1.js"></script>
+<script type="text/JavaScript" src="functions.js"></script>
+
+<link rel="stylesheet" type="text/css" href="PAT8style.css">
+
+
+<!--[if IE]>
+    <style type="text/css">
+        .box { display: block; }
+        #box { overflow: hidden;position: relative; }
+        b { position: absolute; top: 0px; right: 0px; width:1px; height: 251px; overflow: hidden; text-indent: -9999px; }
+    </style>
+    <![endif]-->
+
+
+<script>
+	$(function() {
+		$("#includedContent").load("home.html");
+	});
+</script>
+
+
+
+</head>
+
+<body>
+
+
+	<ul id="boxLinks" class="group">
+		<li><a href="#box1">Tab 19</a></li>
+		<li><a href="#box2">Tab 20</a></li>
+		<li><a href="#box3">Tab 21</a></li>
+	</ul>
+		<div id='messagesDiv'>
+			<!--<textarea id="messages" style="width: 90%;"></textarea>-->
+			<textarea id="messages" cols=80; rows=3></textarea>
+			<!-- cols=60 rows=10 -->
+		</div>
+	<div id="box">
+		<div id="box1" class="box">
+			<ul>
+				<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+				<li>Aliquam tincidunt mauris eu risus.</li>
+				<li>Vestibulum auctor dapibus neque.</li>
+			</ul>
+			<!--[if IE]><b>.</b><![endif]-->
+		</div>
+		<div id="box2" class="box">
+			Another box!
+			<!--[if IE]><b>.</b><![endif]-->
+		</div>
+		<div id="box3" class="box">
+			<div id="includedContent"></div>
+			Woot!
+			<!--[if IE]><b>.</b><![endif]-->
+		</div>
+	</div>
+
+
+
+
+</body>
+
+</html>

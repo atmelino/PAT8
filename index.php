@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>JAT</title>
+<title>PAT8</title>
 
 <link rel="stylesheet" type="text/css" href="PAT8style.css">
 
@@ -20,7 +20,7 @@
 
 	<div id="menuheader">
 		<ul>
-			<li><a href="home.html" id=home target="iframe_a">Home</a></li>
+			<li><a href="home.php" id=home target="iframe_a">Home</a></li>
 			<li><a href='Applications.php' id='Applications' target="iframe_a">Applications</a>
 			</li>
 			<li><a href='Support.html' id='Support' target="iframe_a">Support</a>
