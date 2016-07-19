@@ -14,8 +14,6 @@
 <script type="text/JavaScript" src="menu.js"></script>
 <script type="text/JavaScript" src="globals.js"></script>
 
-<script type="text/javascript">
-</script>
 
 </head>
 <body onload="onload_function()">

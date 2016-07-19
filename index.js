@@ -50,9 +50,28 @@ function onload_function() {
 			autoResize('iframe_a');
 
 		});
+		
+		
+		$("#orbit01").click(function() {
+			printlnMessage('messages', "orbit01");
+			setSpeed();
+		});
+		
 
 	});
+
+
 }(jQuery));
+
+
+
+function myFunction()
+{
+	printlnMessage('messages', "orbit01");
+	
+
+}
+
 
 
 function autoResize(id) {
