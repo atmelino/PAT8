@@ -2,11 +2,57 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="refresh" content="1;url=index.php">
 
-<title>redirect to index.php</title>
+<title>PAT8</title>
+
+<link rel="stylesheet" type="text/css" href="PAT8style.css">
+
+
+<script type="text/JavaScript" src="lib/jquery-2.1.1.js"></script>
+<script type="text/JavaScript" src="functions.js"></script>
+<script type="text/JavaScript" src="globals.js"></script>
+
+<script>
+	function onload_function() {
+
+		printlnMessage('messages', "program ready");
+
+	}
+
+	$(function() {
+		$("#homeContent").load("home.html");
+	});
+</script>
+
+
 </head>
-<body>
+<body onload="onload_function()">
+
+
+	<ul id="boxLinks" class="group">
+		<li><a href="#box1">Home</a></li>
+		<li><a href="#box2">Applications</a></li>
+		<li><a href="#box3">Support</a></li>
+	</ul>
+	<div id='messagesDiv'>
+		<!--<textarea id="messages" style="width: 90%;"></textarea>-->
+		<textarea id="messages" cols=80; rows=3></textarea>
+		<!-- cols=60 rows=10 -->
+	</div>
+	<div id="box">
+		<div id="box1" class="box">
+			<div id="homeContent"></div>
+		</div>
+		<div id="box2" class="box">
+			Another box!
+		</div>
+		<div id="box3" class="box">
+			<div id="supportContent"></div>
+		</div>
+	</div>
+
+
+
 
 </body>
 </html>
