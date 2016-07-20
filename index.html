@@ -9,51 +9,62 @@
 
 
 <script type="text/JavaScript" src="lib/jquery-2.1.1.js"></script>
-<script type="text/JavaScript" src="ajaxFunctions.js"></script>
 <script type="text/JavaScript" src="functions.js"></script>
+<script type="text/JavaScript" src="ajaxFunctions.js"></script>
 <script type="text/JavaScript" src="globals.js"></script>
 
-<script>
+<script type="text/javascript">
 	function onload_function() {
 
 		printlnMessage('messages', "program ready");
-
 	}
 
 	$(function() {
-		$("#homeContent").load("home.html");
-		$("#supportContent").load("support.html");
+		$("#pageContent").load("home.html");
+
+		$("#home").click(function() {
+			$("#pageContent").load("home.html");
+		});
+		$("#applications").click(function() {
+			$("#pageContent").load("applications.html");
+		});
+		$("#support").click(function() {
+			$("#pageContent").load("support.html");
+			//alert("hi");
+		});
+
 	});
 </script>
-
 
 </head>
 <body onload="onload_function()">
 
-
-	<ul id="boxLinks" class="group">
-		<li><a href="#box1">Home</a></li>
-		<li><a href="#box2">Applications</a></li>
-		<li><a href="#box3">Support</a></li>
-	</ul>
-	<div id='messagesDiv'>
-		<!--<textarea id="messages" style="width: 90%;"></textarea>-->
-		<textarea id="messages" cols=100; rows=10></textarea>
-		<!-- cols=60 rows=10 -->
-	</div>
-	<div id="box">
-		<div id="box1" class="box">
-			<div id="homeContent"></div>
-		</div>
-		<div id="box2" class="box">
-			Another box!
-		</div>
-		<div id="box3" class="box">
-			<div id="supportContent"></div>
-		</div>
+	<div id="menuheader">
+		<ul>
+			<li><a href="#" id=home>Home</a></li>
+			<li><a href="#" id='applications'>Applications</a></li>
+			<li><a href="#" id='support'>Support</a></li>
+			<li><a href="#" id='Screenshots'>Screenshots</a></li>
+			<li><a href="#" id='Testing'>Testing</a></li>
+			<li><a href="#" id='Licenses'>Licenses</a></li>
+		</ul>
 	</div>
 
+	<!-- 	<div id="status"> -->
+	<!--<?php include("status.html"); ?>-->
+	<!-- 	</div> -->
 
+	<div id='mainarea'>
+		<div id='messagesDiv'>
+			<!--<textarea id="messages" style="width: 90%;"></textarea>-->
+			<textarea id="messages" cols=100; rows=10></textarea>
+			<!-- cols=60 rows=10 -->
+		</div>
+
+		<div id='pageContent'></div>
+
+	</div>
+	<!-- end of mainarea -->
 
 
 </body>
