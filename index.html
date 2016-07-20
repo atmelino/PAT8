@@ -9,6 +9,7 @@
 
 
 <script type="text/JavaScript" src="lib/jquery-2.1.1.js"></script>
+<script type="text/JavaScript" src="ajaxFunctions.js"></script>
 <script type="text/JavaScript" src="functions.js"></script>
 <script type="text/JavaScript" src="globals.js"></script>
 
@@ -21,6 +22,7 @@
 
 	$(function() {
 		$("#homeContent").load("home.html");
+		$("#supportContent").load("support.html");
 	});
 </script>
 
@@ -36,7 +38,7 @@
 	</ul>
 	<div id='messagesDiv'>
 		<!--<textarea id="messages" style="width: 90%;"></textarea>-->
-		<textarea id="messages" cols=80; rows=3></textarea>
+		<textarea id="messages" cols=100; rows=10></textarea>
 		<!-- cols=60 rows=10 -->
 	</div>
 	<div id="box">

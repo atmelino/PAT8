@@ -4,21 +4,17 @@ error_reporting(E_ALL);
 
 
 $json=$_GET['json'];
+$decoded = json_decode($_GET['json']);
+$py=$decoded->py;
+
+
 echo "PHP: ".$json."\n";
-
-
-//$decoded = json_decode($_GET['json']);
-//echo $decoded;
-
-//$speedfl=$decoded->speedfl;
-//echo $speedfl;
+//echo $py;
 
 
 
-// $speed = $_GET['speed'];
-// $wheel = $_GET['wheel'];
-
-$cmd = "/usr/bin/python ./orbit.py ".escapeshellarg($json);
+//$cmd = "/usr/bin/python ./orbit01.py ".escapeshellarg($json);
+$cmd = "/usr/bin/python ./".$py." ".escapeshellarg($json);
 
 $handle = popen($cmd, 'r');
 $res = fread($handle, 8192);
