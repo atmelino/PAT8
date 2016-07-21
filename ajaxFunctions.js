@@ -36,5 +36,14 @@ function ajaxCalled_callPython01() {
 		callPython01message = ajaxcallPython01.responseText;
 		printlnMessage('messages', "response from PHP and python:");
 		printlnMessage('messages', callPython01message);
+		
+		
+		
+		
+		printlnMessage('messages', "reload image");
+		//document.getElementById("myImage").src = "http://....";
+		rnd=Math.random();
+		document.getElementById("myImage").src = "writeFiles/pic01.png?rnd="+rnd;
+		
 	}
 }

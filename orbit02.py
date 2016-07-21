@@ -3,19 +3,25 @@ import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+from random import randint
+import traceback
+import os
+
+f=randint(0,9)
 
 t = np.arange(0.0, 2.0, 0.01)
-s = np.sin(2*np.pi*t)
+s = np.sin(2*f*np.pi*t)
 
 
 print 7
 
 try:
+    os.remove("writeFiles/pic01.png")
     plt.plot(t, s)    
     print 8
     plt.xlabel('time (s)')
     plt.ylabel('voltage (mV)')
-    plt.title('About as simple as it gets, folks')
+    plt.title('Sine')
     plt.grid(True)
 
 
