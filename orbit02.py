@@ -15,8 +15,15 @@ s = np.sin(2*f*np.pi*t)
 
 print 7
 
+
+
 try:
     os.remove("writeFiles/pic01.png")
+except Exception: 
+    pass
+
+
+try:
     plt.plot(t, s)    
     print 8
     plt.xlabel('time (s)')
