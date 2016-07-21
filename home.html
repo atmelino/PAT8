@@ -6,41 +6,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
-<script type="text/javascript">
-function orbit01_func() {
-	printlnMessage('messages', "orbit01 button");
-	myParams = {
-			py : "orbit01.py",
-			x0 : 200,
-			y0 : 0,
-			z0 : 0,
-			vx0: 7.9 
-		};
-
-	ajax_callPython01(myParams);
-}
-
-function orbit02_func() {
-	printlnMessage('messages', "orbit02 button");
-	myParams = {
-			py : "orbit02.py",
-			x0 : 200,
-			y0 : 0,
-			z0 : 0,
-			vx0: 7.9 
-		};
-
-	ajax_callPython01(myParams);
-}
-</script>
 
 
 <body>
 
 	<h2>Python Astrodynamics Toolkit</h2>
-
-	<button id="orbit01" onclick="orbit01_func()">orbit01</button>
-	<button id="orbit02" onclick="orbit02_func()">orbit02</button>
 
 	<h3>Licensing</h3>
 	<p>

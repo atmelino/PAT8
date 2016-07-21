@@ -1,28 +1,33 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-  <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
-    <title>Insert title here</title>
-  </head>
-  <body> give www-data user write access <br>
-    <br>
-    <a href="http://askubuntu.com/questions/244406/how-do-i-give-www-data-user-to-a-folder-in-my-home-folder">http://askubuntu.com/questions/244406/how-do-i-give-www-data-user-to-a-folder-in-my-home-folder</a>
-    <br>
-    <br>
-    usermod -a -G www-data (your username) <br>
-    <br>
-    chgrp www-data /home/myuser/folderA <br>
-    chmod g+rwxs /home/myuser/folderA <br>
-    <a href="http://stackoverflow.com/questions/29331872/ioerror-errno-13-permission-denied">http://stackoverflow.com/questions/29331872/ioerror-errno-13-permission-denied</a>
-    <br>
-    chmod 777 /var/www/path/to/file (may have to delete file if it already
-    exists and belongs to a different user) <br>
-    <br>
-    <br>
-    <h3>python modules to install</h3>
-    sudo apt-get install python-matplotlib <br>
-    <br>
-    Using matplotlib on web server<br>
-    <a href="http://matplotlib.org/faq/howto_faq.html#matplotlib-in-a-web-application-server">http://matplotlib.org/faq/howto_faq.html#matplotlib-in-a-web-application-server</a>
-  </body>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+<title>Insert title here</title>
+</head>
+<body>
+	give www-data user write access
+	<br>
+	<br>
+	<a href="http://askubuntu.com/questions/244406/how-do-i-give-www-data-user-to-a-folder-in-my-home-folder">http://askubuntu.com/questions/244406/how-do-i-give-www-data-user-to-a-folder-in-my-home-folder</a>
+	<br>
+	<br> usermod -a -G www-data (your username)
+	<br>
+	<br> chgrp www-data /home/myuser/folderA
+	<br> chmod g+rwxs /home/myuser/folderA
+	<br>
+	<a href="http://stackoverflow.com/questions/29331872/ioerror-errno-13-permission-denied">http://stackoverflow.com/questions/29331872/ioerror-errno-13-permission-denied</a>
+	<br> chmod 777 /var/www/path/to/file (may have to delete file if it already exists and belongs to a different
+	user)
+	<br>
+	<br>
+	<br>
+	<h3>python modules to install</h3>
+	sudo apt-get install python-matplotlib
+	<br>sudo apt-get install python-numpy
+	<br> sudo apt-get install python-scipy
+	<br>
+	<br> Using matplotlib on web server
+	<br>
+	<a href="http://matplotlib.org/faq/howto_faq.html#matplotlib-in-a-web-application-server">http://matplotlib.org/faq/howto_faq.html#matplotlib-in-a-web-application-server</a>
+</body>
 </html>

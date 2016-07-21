@@ -22,7 +22,7 @@ try:
 
     #plt.savefig("test.png")
     #plt.show()
-    plt.savefig("foo.png", bbox_inches='tight')
+    plt.savefig("writeFiles/pic01.png", bbox_inches='tight')
 except Exception:
     print(traceback.format_exc())
     print "exception"

@@ -5,10 +5,20 @@
 
 <title>PAT8</title>
 
+
+<!--<link rel="stylesheet" href="lib/jquery-ui-1.10.3/plugins/spinner-layout/jquery.ui.spinner.css">-->
+<!--<script src="lib/jquery-ui-1.10.3/plugins/spinner-layout/jquery.ui.spinner.js"></script>-->
+
+<!-- <link rel="stylesheet" href="lib/jquery-ui-1.12.0/jquery-ui.theme.css">
+<script type="text/JavaScript" src="lib/jquery-2.1.1.js"></script>
+<script src="lib/jquery-ui-1.12.0/jquery-ui.js"></script>-->
+
+<link rel="stylesheet" href="lib/jquery-ui.css">
+<script src="lib/jquery-1.12.4.js"></script>
+<script src="lib/jquery-ui.js"></script>
+
 <link rel="stylesheet" type="text/css" href="PAT8style.css">
 
-
-<script type="text/JavaScript" src="lib/jquery-2.1.1.js"></script>
 <script type="text/JavaScript" src="functions.js"></script>
 <script type="text/JavaScript" src="ajaxFunctions.js"></script>
 <script type="text/JavaScript" src="globals.js"></script>
@@ -17,6 +27,19 @@
 	function onload_function() {
 
 		printlnMessage('messages', "program ready");
+		rememberPage = getCookie('rememberPage');
+		if (rememberPage == null)
+			rememberPage = '0';
+		if (rememberPage == 1) {
+			document.getElementById('rememberPage').checked = true;
+			//$("#pageContent").load("applications.html");
+			currentPage = getCookie('currentPage');
+			//alert(currentPage);
+			$("#pageContent").load(currentPage);
+
+		} else
+			document.getElementById('rememberPage').checked = false;
+
 	}
 
 	$(function() {
@@ -24,13 +47,26 @@
 
 		$("#home").click(function() {
 			$("#pageContent").load("home.html");
+			setCookie('currentPage', 'home.html', 100);
 		});
 		$("#applications").click(function() {
 			$("#pageContent").load("applications.html");
+			setCookie('currentPage', 'applications.html', 100);
 		});
 		$("#support").click(function() {
 			$("#pageContent").load("support.html");
+			setCookie('currentPage', 'support.html', 100);
 			//alert("hi");
+		});
+		$("#rememberPage").click(function() {
+			if ($(this).is(':checked')) {
+				show = true;
+				setCookie('rememberPage', '1', 100);
+
+			} else {
+				show = false;
+				setCookie('rememberPage', '0', 100);
+			}
 		});
 
 	});
@@ -47,7 +83,9 @@
 			<li><a href="#" id='Screenshots'>Screenshots</a></li>
 			<li><a href="#" id='Testing'>Testing</a></li>
 			<li><a href="#" id='Licenses'>Licenses</a></li>
+			<input type="checkbox" id='rememberPage'>remember page</>
 		</ul>
+
 	</div>
 
 	<!-- 	<div id="status"> -->
