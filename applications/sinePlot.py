@@ -13,7 +13,7 @@ t = np.arange(0.0, 2.0, 0.01)
 s = np.sin(2*f*np.pi*t)
 
 
-print 7
+#print 7
 
 
 

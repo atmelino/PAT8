@@ -8,7 +8,13 @@ $decoded = json_decode($_GET['json']);
 $py=$decoded->py;
 
 
-echo "PHP: ".$json."\n";
+
+$myarray['py']=$py;
+$myarray['message']='';
+
+
+//echo $json;
+//echo "PHP: ".$json."\n";
 //echo $py;
 
 
@@ -21,10 +27,13 @@ $res = fread($handle, 8192);
 pclose($handle);
 
 //var_dump($res);
-echo $res;
+//echo $res;
+$myarray['message'].=$res;
 
-echo 'end PHP program';
+#echo 'end PHP program';
 
+$encoded= json_encode($myarray);
+echo $encoded;
 
 
 ?>

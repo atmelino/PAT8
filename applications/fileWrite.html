@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+	function fileWrite_func() {
+		printlnMessage('messages', "fileWrite button");
+		myParams = {
+			py : "fileWrite.py",
+			x0 : 200,
+			y0 : 0,
+			z0 : 0,
+			vx0 : 7.9
+		};
+
+		ajax_callPython01(myParams);
+	}
+
+
+</script>
+
+
+
+</head>
+<body>
+	<br> Applications
+
+
+	<button id="fileWrite" onclick="fileWrite_func()">fileWrite</button>
+
+
+</body>
+</html>
