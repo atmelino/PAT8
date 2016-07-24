@@ -44,6 +44,14 @@ function ajaxCalled_callPython01() {
 			document.getElementById("sinePlotImage").src = "applications/writeFiles/sinePlot.png?rnd="
 					+ rnd;
 		}
+		if (callPython01JSON.py == "integration01.py") {
+			printlnMessage('messages', "reload image");
+			rnd = Math.random();
+			document.getElementById("integration01Image").src = "applications/writeFiles/integration01.png?rnd="
+					+ rnd;
+		}
+		
+		
 		if (callPython01JSON.py == "orbitTest01.py") {
 			printlnMessage('messages', "reload image");
 			rnd = Math.random();

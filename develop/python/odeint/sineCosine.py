@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 # x''(t)   + x(t)) = 0
 # a'(t) = b(t)
-# b'(t) = -b*omega(t) - c*sin(theta(t))
+# b'(t) = -a(t)
 
 def func(y, t):
     a, b = y

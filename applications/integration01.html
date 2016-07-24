@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+	function integration01_func() {
+		printlnMessage('messages', "orbit02 button");
+		myParams = {
+			py : "integration01.py",
+			x0 : 200,
+			y0 : 0,
+			z0 : 0,
+			vx0 : 7.9
+		};
+
+		ajax_callPython01(myParams);
+	}
+
+	$(function() {
+		
+	    var spinner = $( "#spinner" ).spinner();
+
+
+	});
+</script>
+
+
+
+</head>
+<body>
+
+	<button id="integration01" onclick="integration01_func()">integration01</button>
+
+
+	<label for="spinner">Select a value:</label>
+	<input id="spinner" name="value">
+
+
+
+	<div>
+		<img src="applications/writeFiles/integration01.png" id="integration01Image" height="400" />
+	</div>
+
+</body>
+</html>
