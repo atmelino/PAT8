@@ -18,7 +18,7 @@ s = np.sin(2*f*np.pi*t)
 
 
 try:
-    os.remove("writeFiles/pic01.png")
+    os.remove("writeFiles/sinePlot.png")
 except Exception: 
     pass
 
@@ -35,7 +35,7 @@ try:
 
     #plt.savefig("test.png")
     #plt.show()
-    plt.savefig("writeFiles/pic01.png", bbox_inches='tight')
+    plt.savefig("writeFiles/sinePlot.png", bbox_inches='tight')
 except Exception:
     print(traceback.format_exc())
     print "exception"
