@@ -14,8 +14,10 @@ GM = 1.0
 
 def acceleration(r, t):
     x, xdot, y, ydot = r
-    dsq = dx * dx + dy * dy  # distance squared
+    dsq = x * x + y * y  # distance squared
+    #print dsq
     dr = math.sqrt(dsq)  # distance
+    #print dr
     force = GM if dsq > 1e-10 else 0.
     xdotdot = force * x / dr
     ydotdot = force * y / dr
@@ -30,7 +32,9 @@ def acceleration(r, t):
 
 t = np.linspace(0, 10, 101)
 y0 = [0, 10, 20, 0]
-#sol = odeint(acceleration, y0, t)
+#print y0,
+
+sol = odeint(acceleration, y0, t)
 
 
 f = randint(0, 9)

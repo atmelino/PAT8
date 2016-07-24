@@ -22,7 +22,7 @@ function ajax_callPython01(myParams) {
 	// printlnMessage('messages', JSON.stringify(myParams));
 	var requeststring;
 	requeststring = "applications/orbit01.php?json=" + JSON.stringify(myParams);
-	printlnMessage('messages', "ajax: " + requeststring);
+	//printlnMessage('messages', "ajax: " + requeststring);
 	ajaxcallPython01.open("GET", encodeURI(requeststring), true);
 	ajaxcallPython01.send(null);
 
