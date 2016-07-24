@@ -7,10 +7,11 @@ from random import randint
 import traceback
 import os
 from scipy.integrate import odeint
+import math
 
 
 
-GM = 1.0
+GM = 1.5
 
 def acceleration(r, t):
     x, xdot, y, ydot = r
@@ -19,8 +20,8 @@ def acceleration(r, t):
     dr = math.sqrt(dsq)  # distance
     #print dr
     force = GM if dsq > 1e-10 else 0.
-    xdotdot = force * x / dr
-    ydotdot = force * y / dr
+    xdotdot = -force * x / dr
+    ydotdot = -force * y / dr
     drdt = [xdot, xdotdot, ydot, ydotdot]
     return drdt
 
@@ -30,17 +31,17 @@ def acceleration(r, t):
 
 
 
-t = np.linspace(0, 10, 101)
+t = np.linspace(0, 150, 1000)
 y0 = [0, 10, 20, 0]
 #print y0,
 
 sol = odeint(acceleration, y0, t)
 
 
-f = randint(0, 9)
+#f = randint(0, 9)
 
-t = np.arange(0.0, 2.0, 0.01)
-s = np.sin(2 * f * np.pi * t)
+#t = np.arange(0.0, 2.0, 0.01)
+#s = np.sin(2 * f * np.pi * t)
 
 
 # print 7
@@ -54,11 +55,12 @@ except Exception:
 
 
 try:
-    plt.plot(t, s)    
+    #plt.plot(t, s)    
+    plt.plot(sol[:,0], sol[:,2])    
     print 8
-    plt.xlabel('time (s)')
-    plt.ylabel('voltage (mV)')
-    plt.title('Sine')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.title('orbit')
     plt.grid(True)
 
 
