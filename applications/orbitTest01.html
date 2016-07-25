@@ -4,26 +4,70 @@
 <meta content="text/html; charset=UTF-8" http-equiv="content-type">
 <title>Insert title here</title>
 
-<script type="text/javascript">
+<style>
+#wrapper {
+	margin-left: 200px;
+}
 
+#content {
+	float: right;
+	width: 100%;
+	background-color: #CCF;
+}
+
+#sidebar {
+	float: left;
+	width: 200px;
+	margin-left: -200px;
+	background-color: #FFA;
+}
+
+#orbitTest01 {
+	alignment: center;
+	width: 200px;
+}
+
+#cleared {
+	clear: both;
+}
+</style>
+
+<script type="text/javascript">
 	function orbitTest01_func() {
 		//printlnMessage('messages', "orbitTest01 button");
 		myParams = {
 			py : "orbitTest01.py",
-			x0 : 200,
-			y0 : 0,
-			z0 : 0,
-			vx0 : 7.9
+			x0 : $("#x0").spinner("value"),
+			y0 : $("#y0").spinner("value"),
+			vx0 : $("#vx0").spinner("value"),
+			vy0 : $("#vy0").spinner("value"),
 		};
 
 		ajax_callPython01(myParams);
 	}
 
 	$(function() {
-		
-	    var spinner = $( "#spinner" ).spinner();
 
-
+		$("#x0").spinner({
+			step : 0.01,
+			numberFormat : "n",
+		});
+		$("#x0").width(40);
+		$("#y0").spinner({
+			step : 0.01,
+			numberFormat : "n",
+		});
+		$("#y0").width(40);
+		$("#vx0").spinner({
+			step : 0.01,
+			numberFormat : "n",
+		});
+		$("#vx0").width(40);
+		$("#vy0").spinner({
+			step : 0.01,
+			numberFormat : "n",
+		});
+		$("#vy0").width(40);
 	});
 </script>
 
@@ -32,17 +76,28 @@
 </head>
 <body>
 
-	<button id="orbitTest01" onclick="orbitTest01_func()">orbitTest01</button>
-
-
-	<label for="spinner">Select a value:</label>
-	<input id="spinner" name="value">
-
-
-
-	<div>
-		<img src="applications/writeFiles/orbitTest01.png" id="orbitTest01Image" height="400" />
+	<div id="wrapper">
+		<div id="content">
+			<div>
+				<img src="applications/writeFiles/orbitTest01.png" id="orbitTest01Image" height="400" />
+			</div>
+		</div>
+		<div id="sidebar">
+			<label for="spinner">x0:</label> <input id="x0" name="value" value="0"> <br>
+			<!--  -->
+			<label for="spinner">y0:</label> <input id="y0" name="value" value="20.00"> <br>
+			<!--  -->
+			<label for="spinner">vx0:</label> <input id="vx0" name="value" value="16.00"> <br>
+			<!--  -->
+			<label for="spinner">vy0:</label> <input id="vy0" name="value" value="0.00"> <br>
+			<button id="orbitTest01" onclick="orbitTest01_func()">plot</button>
+		</div>
+		<div id="cleared"></div>
 	</div>
+
+
+
+
 
 </body>
 </html>

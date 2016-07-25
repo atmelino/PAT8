@@ -7,6 +7,20 @@ import traceback
 import os
 from scipy.integrate import odeint
 import math
+import json
+import sys
+
+#print 'Argument List:', str(sys.argv)
+#print sys.argv[1:2]
+data=sys.argv[1:2]
+decoded = json.loads(sys.argv[1])
+#print decoded
+print decoded['x0']
+x0=decoded['x0']
+y0=decoded['y0']
+vx0=decoded['vx0']
+vy0=decoded['vy0']
+
 
 GM = 1.5
 
@@ -20,11 +34,24 @@ def acceleration(r_vec, t):
     drdt = [vx, vy, vz, muorc * x, muorc * y, muorc * z]
     return drdt
 
-t = np.linspace(0, 60, 100)
-y0 = [0, 20, 0, 16, 0, 0]
-print y0,
+def npmax(l):
+    max_idx = np.argmax(l)
+    max_val = l[max_idx]
+    #return (max_idx, max_val)
+    return max_val
 
-sol = odeint(acceleration, y0, t)
+def npmin(l):
+    min_idx = np.argmin(l)
+    min_val = l[min_idx]
+    #return (min_idx, min_val)
+    return min_val
+
+t = np.linspace(0, 60, 100)
+y_vec0 = [x0, y0, 0, vx0, vy0, 0]
+#y_vec0 = [0, 20, 0, 16, 0, 0]
+print 'y_vec0 ',y_vec0,
+
+sol = odeint(acceleration, y_vec0, t)
 
 
 try:
@@ -33,8 +60,24 @@ except Exception:
     pass
 
 try:
+    
+    #plt.plot(range(5))
     # plt.plot(t, s)    
-    plt.plot(sol[:, 0], sol[:, 1])    
+    plt.plot(sol[:, 0], sol[:, 1])
+    #print npmax(sol[:, 0])
+    #print npmax(sol[:, 1])
+    #print npmin(sol[:, 1])
+    ps1=npmax(sol[:, 0])
+    ps2=np.absolute(npmin(sol[:, 0]))
+    ps3=npmax(sol[:, 1])
+    ps4=np.absolute(npmin(sol[:, 1]))
+    print max(ps1,ps2,ps3,ps4)
+    plotsize=1.01*max(ps1,ps2,ps3,ps4)
+    
+    plt.xlim(-plotsize, plotsize)
+    plt.ylim(-plotsize, plotsize)
+    plt.gca().set_aspect('equal', adjustable='box')
+    plt.draw()
     plt.xlabel('x')
     plt.ylabel('y')
     plt.title('orbit')

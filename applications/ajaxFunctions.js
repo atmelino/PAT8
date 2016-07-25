@@ -22,7 +22,7 @@ function ajax_callPython01(myParams) {
 	// printlnMessage('messages', JSON.stringify(myParams));
 	var requeststring;
 	requeststring = "applications/orbit01.php?json=" + JSON.stringify(myParams);
-	// printlnMessage('messages', "ajax: " + requeststring);
+	//printlnMessage('messages', "ajax: " + requeststring);
 	ajaxcallPython01.open("GET", encodeURI(requeststring), true);
 	ajaxcallPython01.send(null);
 
@@ -36,7 +36,7 @@ function ajaxCalled_callPython01() {
 		printlnMessage('messages', "response from PHP and python:");
 		printlnMessage('messages', callPython01message);
 		callPython01JSON = JSON.parse(callPython01message);
-		printlnMessage('messages', callPython01JSON.py);
+		//printlnMessage('messages', callPython01JSON.py);
 
 		if (callPython01JSON.py == "sinePlot.py") {
 			printlnMessage('messages', "reload image");
