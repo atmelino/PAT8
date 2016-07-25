@@ -4,12 +4,13 @@ import matplotlib.pyplot as plt
 
 
 # x''(t)   + x(t)) = 0
-# a'(t) = b(t)
-# b'(t) = -a(t)
+# convert second order ode to first order system
+# y'(t) = x(t)
+# dydt(t) = -y'(t)
 
-def func(y, t):
-    a, b = y
-    dydt = [b, -a]
+def func(y_vec, t):
+    y, ydot = y_vec
+    dydt = [ydot, -y]
     return dydt
 
 

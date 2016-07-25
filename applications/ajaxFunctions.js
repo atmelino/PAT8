@@ -22,7 +22,7 @@ function ajax_callPython01(myParams) {
 	// printlnMessage('messages', JSON.stringify(myParams));
 	var requeststring;
 	requeststring = "applications/orbit01.php?json=" + JSON.stringify(myParams);
-	//printlnMessage('messages', "ajax: " + requeststring);
+	// printlnMessage('messages', "ajax: " + requeststring);
 	ajaxcallPython01.open("GET", encodeURI(requeststring), true);
 	ajaxcallPython01.send(null);
 
@@ -50,8 +50,12 @@ function ajaxCalled_callPython01() {
 			document.getElementById("integration01Image").src = "applications/writeFiles/integration01.png?rnd="
 					+ rnd;
 		}
-		
-		
+		if (callPython01JSON.py == "integration02.py") {
+			printlnMessage('messages', "reload image");
+			rnd = Math.random();
+			document.getElementById("integration02Image").src = "applications/writeFiles/integration02.png?rnd="
+					+ rnd;
+		}
 		if (callPython01JSON.py == "orbitTest01.py") {
 			printlnMessage('messages', "reload image");
 			rnd = Math.random();

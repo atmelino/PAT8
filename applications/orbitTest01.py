@@ -1,4 +1,3 @@
-# import pandas as pd
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
@@ -9,43 +8,23 @@ import os
 from scipy.integrate import odeint
 import math
 
-
-
 GM = 1.5
 
-def acceleration(r, t):
-    x, xdot, y, ydot = r
-    dsq = x * x + y * y  # distance squared
-    #print dsq
-    dr = math.sqrt(dsq)  # distance
-    #print dr
-    force = GM if dsq > 1e-10 else 0.
-    xdotdot = -force * x / dr
-    ydotdot = -force * y / dr
-    drdt = [xdot, xdotdot, ydot, ydotdot]
+def acceleration(r_vec, t):
+    x, y, z, vx, vy, vz = r_vec
+    mu = 3000.0
+    r = math.sqrt(x * x + y * y + z * z)    
+    rcubed = r * r * r
+    muorc = -1.0 * mu / rcubed
+    #print r
+    drdt = [vx, vy, vz, muorc * x, muorc * y, muorc * z]
     return drdt
 
-
-
-
-
-
-
-t = np.linspace(0, 150, 1000)
-y0 = [0, 10, 20, 0]
-#print y0,
+t = np.linspace(0, 60, 100)
+y0 = [0, 20, 0, 16, 0, 0]
+print y0,
 
 sol = odeint(acceleration, y0, t)
-
-
-#f = randint(0, 9)
-
-#t = np.arange(0.0, 2.0, 0.01)
-#s = np.sin(2 * f * np.pi * t)
-
-
-# print 7
-
 
 
 try:
@@ -53,25 +32,15 @@ try:
 except Exception: 
     pass
 
-
 try:
-    #plt.plot(t, s)    
-    plt.plot(sol[:,0], sol[:,2])    
-    print 8
+    # plt.plot(t, s)    
+    plt.plot(sol[:, 0], sol[:, 1])    
     plt.xlabel('x')
     plt.ylabel('y')
     plt.title('orbit')
     plt.grid(True)
-
-
-
-    # plt.savefig("test.png")
-    # plt.show()
     plt.savefig("writeFiles/orbitTest01.png", bbox_inches='tight')
 except Exception:
     print(traceback.format_exc())
     print "exception"
     print "end"
-
-
-# matplotlib.style.use('ggplot')

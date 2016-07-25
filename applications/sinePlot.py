@@ -7,7 +7,7 @@ from random import randint
 import traceback
 import os
 
-f=randint(0,9)
+f=randint(1,9)
 
 t = np.arange(0.0, 2.0, 0.01)
 s = np.sin(2*f*np.pi*t)
