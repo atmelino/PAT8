@@ -12,24 +12,39 @@ import sys
 
 #print 'Argument List:', str(sys.argv)
 #print sys.argv[1:2]
+#print sys.argv[1]
 data=sys.argv[1:2]
 decoded = json.loads(sys.argv[1])
 #print decoded
-print decoded['x0']
+#print decoded['x0']
 x0=decoded['x0']
 y0=decoded['y0']
 vx0=decoded['vx0']
 vy0=decoded['vy0']
+z0=0
+GM=decoded['GM']
+tf=decoded['tf']
 
 
-GM = 1.5
+#GM = 1.5
+
+#print GM/2
+#r = math.sqrt(x0 * x0 + y0 * y0 + z0 * z0)    
+#rcubed = r * r * r
+#print rcubed
+#muorc = -1.0 * GM / rcubed
+#print muorc
+
+
+
 
 def acceleration(r_vec, t):
     x, y, z, vx, vy, vz = r_vec
-    mu = 3000.0
+    #mu = 3000.0
     r = math.sqrt(x * x + y * y + z * z)    
     rcubed = r * r * r
-    muorc = -1.0 * mu / rcubed
+    #muorc = -1.0 * mu / rcubed
+    muorc = -1.0 * GM / rcubed
     #print r
     drdt = [vx, vy, vz, muorc * x, muorc * y, muorc * z]
     return drdt
@@ -46,7 +61,7 @@ def npmin(l):
     #return (min_idx, min_val)
     return min_val
 
-t = np.linspace(0, 60, 100)
+t = np.linspace(0, tf, 100)
 y_vec0 = [x0, y0, 0, vx0, vy0, 0]
 #y_vec0 = [0, 20, 0, 16, 0, 0]
 print 'y_vec0 ',y_vec0,

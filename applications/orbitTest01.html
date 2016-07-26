@@ -37,10 +37,12 @@
 		//printlnMessage('messages', "orbitTest01 button");
 		myParams = {
 			py : "orbitTest01.py",
+			GM : $("#GM").spinner("value"),
 			x0 : $("#x0").spinner("value"),
 			y0 : $("#y0").spinner("value"),
 			vx0 : $("#vx0").spinner("value"),
 			vy0 : $("#vy0").spinner("value"),
+			tf : $("#tf").spinner("value"),
 		};
 
 		ajax_callPython01(myParams);
@@ -48,6 +50,11 @@
 
 	$(function() {
 
+		$("#GM").spinner({
+			step : 1.0,
+			numberFormat : "n",
+		});
+		$("#GM").width(100);
 		$("#x0").spinner({
 			step : 0.01,
 			numberFormat : "n",
@@ -68,6 +75,29 @@
 			numberFormat : "n",
 		});
 		$("#vy0").width(40);
+
+		$("#tf").spinner({
+			step : 1.0,
+			numberFormat : "n",
+		});
+		$("#tf").width(40);
+
+		$("#scenario").change(function() {
+			//alert("Handler for .change() called.");
+			//alert($("#scenario").val());
+			myValue = $("#scenario").val();
+			if (myValue == "test") {
+				$('#GM').val("3001");
+				$('#y0').val("20");
+			}
+			if (myValue == "earth") {
+				$('#GM').val("398600.441890000");
+				$('#y0').val("6678");
+				$('#vx0').val("7.73");
+				$('#tf').val("7000");
+			}
+		});
+
 	});
 </script>
 
@@ -83,6 +113,14 @@
 			</div>
 		</div>
 		<div id="sidebar">
+			Scenario:<select id="scenario">
+				<option value="test">Test</option>
+				<option value="earth">Earth</option>
+				<option value="sun">Sun</option>
+			</select><br>
+			<!--  -->
+			<label for="spinner">GM:</label> <input id="GM" name="value" value="3000.0"> <br>
+			<!--  -->
 			<label for="spinner">x0:</label> <input id="x0" name="value" value="0"> <br>
 			<!--  -->
 			<label for="spinner">y0:</label> <input id="y0" name="value" value="20.00"> <br>
@@ -90,6 +128,8 @@
 			<label for="spinner">vx0:</label> <input id="vx0" name="value" value="16.00"> <br>
 			<!--  -->
 			<label for="spinner">vy0:</label> <input id="vy0" name="value" value="0.00"> <br>
+			<!--  -->
+			<label for="spinner">tf:</label> <input id="tf" name="value" value="60"> <br>
 			<button id="orbitTest01" onclick="orbitTest01_func()">plot</button>
 		</div>
 		<div id="cleared"></div>

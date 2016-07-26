@@ -22,6 +22,8 @@ $myarray['message']='';
 //$cmd = "/usr/bin/python ./orbit01.py ".escapeshellarg($json);
 $cmd = "/usr/bin/python ./".$py." ".escapeshellarg($json);
 
+//print $cmd;
+
 $handle = popen($cmd, 'r');
 $res = fread($handle, 8192);
 pclose($handle);
