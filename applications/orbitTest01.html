@@ -80,7 +80,7 @@
 			step : 1.0,
 			numberFormat : "n",
 		});
-		$("#tf").width(40);
+		$("#tf").width(60);
 
 		$("#scenario").change(function() {
 			//alert("Handler for .change() called.");
@@ -90,12 +90,27 @@
 				$('#GM').val("3001");
 				$('#y0').val("20");
 			}
-			if (myValue == "earth") {
+			if (myValue == "Earth LEO") {
 				$('#GM').val("398600.441890000");
 				$('#y0').val("6678");
 				$('#vx0').val("7.73");
 				$('#tf').val("7000");
 			}
+			if (myValue == "Earth LEO-GEO") {
+				$('#GM').val("398600.441890000");
+				$('#y0').val("6678");
+				$('#vx0').val("10.15");
+				$('#tf').val("18700");
+			}
+			if (myValue == "Earth GEO") {
+				$('#GM').val("398600.441890000");
+				$('#y0').val("42164");
+				$('#vx0').val("3.07");
+				$('#tf').val("86400");
+			}
+			
+			
+			
 		});
 
 	});
@@ -115,7 +130,9 @@
 		<div id="sidebar">
 			Scenario:<select id="scenario">
 				<option value="test">Test</option>
-				<option value="earth">Earth</option>
+				<option value="Earth LEO">Earth LEO</option>
+				<option value="Earth LEO-GEO">Earth LEO-GEO</option>
+				<option value="Earth GEO">Earth GEO</option>
 				<option value="sun">Sun</option>
 			</select><br>
 			<!--  -->
