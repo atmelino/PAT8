@@ -18,6 +18,7 @@ data=sys.argv[1:2]
 decoded = json.loads(sys.argv[1])
 #print decoded
 #print decoded['x0']
+central=decoded['central']
 x0=decoded['x0']
 y0=decoded['y0']
 vx0=decoded['vx0']
@@ -76,10 +77,13 @@ except Exception:
     pass
 
 try:
-    
-    circle1=plt.Circle((0,0),6378,color='#36AFBF')
-    #77 182 196
-    plt.gcf().gca().add_artist(circle1)
+    if central=='Earth':
+        circle1=plt.Circle((0,0),6378,color='#36AFBF')
+        #77 182 196
+        plt.gcf().gca().add_artist(circle1)
+    if central=='Sun':
+        circle1=plt.Circle((0,0),6963000,color='#E9F073')
+        plt.gcf().gca().add_artist(circle1)
     #plt.plot(range(5))
     # plt.plot(t, s)    
     plt.plot(sol[:, 0], sol[:, 1])
