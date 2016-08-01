@@ -62,5 +62,11 @@ function ajaxCalled_callPython01() {
 			document.getElementById("orbitTest01Image").src = "applications/writeFiles/orbitTest01.png?rnd="
 					+ rnd;
 		}
+		if (callPython01JSON.py == "earthMoon01.py") {
+			printlnMessage('messages', "reload image");
+			rnd = Math.random();
+			document.getElementById("earthMoon01Image").src = "applications/writeFiles/earthMoon01.png?rnd="
+					+ rnd;
+		}
 	}
 }

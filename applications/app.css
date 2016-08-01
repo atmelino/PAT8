@@ -1,0 +1,25 @@
+#wrapper {
+	margin-left: 200px;
+}
+
+#content {
+	float: right;
+	width: 100%;
+	background-color: #CCF;
+}
+
+#sidebar {
+	float: left;
+	width: 200px;
+	margin-left: -200px;
+	background-color: #FFA;
+}
+
+#earthMoon01 {
+	alignment: center;
+	width: 200px;
+}
+
+#cleared {
+	clear: both;
+}
