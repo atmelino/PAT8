@@ -33,15 +33,15 @@
 </style>
 
 <script type="text/javascript">
-earthGM = 398600.441890000;
-sunGM = 132712440018.;
-central="Earth";
-	
+	earthGM = 398600.441890000;
+	sunGM = 132712440018.;
+	central = "Earth";
+
 	function orbitTest01_func() {
 		printlnMessage('messages', "orbitTest01 button");
 		myParams = {
 			py : "orbitTest01.py",
-			central: central,
+			central : central,
 			GM : $("#GM").spinner("value"),
 			x0 : $("#x0").spinner("value"),
 			y0 : $("#y0").spinner("value"),
@@ -117,7 +117,7 @@ central="Earth";
 			//alert($("#scenario").val());
 			myValue = $("#scenario").val();
 			if (myValue == "Earth LEO") {
-				central="Earth";
+				central = "Earth";
 				$('#GM').val(earthGM);
 				$('#y0').val("6678");
 				$('#vx0').val("7.73");
@@ -125,7 +125,7 @@ central="Earth";
 				$('#GM').spinner("disable");
 			}
 			if (myValue == "Earth LEO-GEO") {
-				central="Earth";
+				central = "Earth";
 				$('#GM').val(earthGM);
 				$('#y0').val("6678");
 				$('#vx0').val("10.15");
@@ -133,7 +133,7 @@ central="Earth";
 				$('#GM').spinner("disable");
 			}
 			if (myValue == "Earth GEO") {
-				central="Earth";
+				central = "Earth";
 				$('#GM').val(earthGM);
 				$('#y0').val("42164");
 				$('#vx0').val("3.07");
@@ -141,7 +141,7 @@ central="Earth";
 				$('#GM').spinner("disable");
 			}
 			if (myValue == "Sun (Earth)") {
-				central="Sun";
+				central = "Sun";
 				$('#GM').val(sunGM);
 				$('#y0').val("149600000");
 				$('#vx0').val("29.78");
@@ -149,7 +149,7 @@ central="Earth";
 				$('#GM').spinner("disable");
 			}
 			if (myValue == "Custom") {
-				central="None";
+				central = "None";
 				$('#GM').val("3001");
 				$('#y0').val("20");
 				$('#vx0').val("16");
@@ -186,17 +186,17 @@ central="Earth";
 				<option value="Custom">Custom</option>
 			</select><br>
 			<!--  -->
-			<label for="spinner">GM:</label> <input id="GM" name="value" value="3000.0"> <br>
+			<label for="spinner">GM:</label> <input id="GM" name="value" value="3000.0">	<br>
 			<!--  -->
-			<label for="spinner">x0:</label> <input id="x0" name="value" value="0"> <br>
+			<label for="spinner">x0:</label> <input id="x0" name="value" value="0">km<br>
 			<!--  -->
-			<label for="spinner">y0:</label> <input id="y0" name="value" value="20.00"> <br>
+			<label for="spinner">y0:</label> <input id="y0" name="value" value="20.00">km<br>
 			<!--  -->
-			<label for="spinner">vx0:</label> <input id="vx0" name="value" value="16.00">km/s <br>
+			<label for="spinner">vx0:</label> <input id="vx0" name="value" value="16.00">km/s<br>
 			<!--  -->
-			<label for="spinner">vy0:</label> <input id="vy0" name="value" value="0.00"> <br>
+			<label for="spinner">vy0:</label> <input id="vy0" name="value" value="0.00">km/s<br>
 			<!--  -->
-			<label for="spinner">tf:</label> <input id="tf" name="value" value="60"> <br>
+			<label for="spinner">tf:</label> <input id="tf" name="value" value="60">s<br>
 			<button id="orbitTest01" onclick="orbitTest01_func()">plot</button>
 		</div>
 		<div id="cleared"></div>

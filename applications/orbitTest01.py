@@ -103,7 +103,7 @@ try:
     plt.draw()
     plt.xlabel('x')
     plt.ylabel('y')
-    plt.title('orbit')
+    plt.title('central body orbit')
     plt.grid(True)
     plt.savefig("writeFiles/orbitTest01.png", bbox_inches='tight')
 except Exception:
