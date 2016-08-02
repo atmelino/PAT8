@@ -27,7 +27,7 @@ GM=decoded['GM']
 t0=decoded['t0']
 deltat=decoded['deltat']
 
-f=randint(1,9)
+#f=randint(1,9)
 
 #GM = 1.5
 
@@ -40,7 +40,9 @@ f=randint(1,9)
 
 
 def moonPosition(t):    
-    mr=[300000,0]
+    mx=300000*np.sin(m_omega*t)
+    my=300000*np.cos(m_omega*t)
+    mr=[mx,my]
     return mr
     
 def moonPositionx(t):    
@@ -48,10 +50,8 @@ def moonPositionx(t):
     
 def acceleration(r_vec, t):
     x, y, z, vx, vy, vz = r_vec
-    #mu = 3000.0
     r = math.sqrt(x * x + y * y + z * z)    
     rcubed = r * r * r
-    #muorc = -1.0 * mu / rcubed
     muorc = -1.0 * GM / rcubed
     #print r
     drdt = [vx, vy, vz, muorc * x, muorc * y, muorc * z]
@@ -76,6 +76,8 @@ print 'y_vec0 ',y_vec0,
 
 #sol = odeint(acceleration, y_vec0, t)
 
+m_period=27.321661547*86400
+m_omega=2*np.pi/m_period
 
 try:
     os.remove("writeFiles/earthMoon01.png")
@@ -86,14 +88,16 @@ try:
 
     #t = np.arange(0.0, 2.0, 0.01)
     
-    t = f*np.linspace(0, deltat/10, 20)
-    mx=300000*np.sin(t)
-    my=300000*np.cos(t)
+    t = np.linspace(0, deltat, 20)
+    mx=300000*np.sin(m_omega*t)
+    my=300000*np.cos(m_omega*t)
     #print t
     #print mx
     
-    #mr=array(moonPositionx(t))
-    #print mr
+    mr=moonPosition(20000)
+    print mr
+
+
 
     if central=='Earth':
         circle1=plt.Circle((0,0),6378,color='#36AFBF')
