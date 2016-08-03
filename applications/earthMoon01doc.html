@@ -7,24 +7,35 @@
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
-<script type="text/javascript" async src="lib/mathjax/MathJax.js?config=TeX-AMS_CHTML">
+<script type="text/javascript" src="lib/mathjax/MathJax.js?config=TeX-AMS_CHTML">
+	
 </script>
-
+<!-- 
+<script type="text/javascript" async src="lib/mathjax/MathJax.js?config=TeX-AMS_CHTML">
+	
+</script>
+ -->
 
 <script type="text/javascript">
-	$(document).ready(
-			function() {
-				//console.log("ready!");
+	function refresh_func() {
+		//UpdateMath(this.value);
+		MathJax.Hub.Queue([ "Typeset", MathJax.Hub ]);
+	}
 
-				window.scrollTo(0, document.body.scrollHeight);
-			});
+	$(document).ready(function() {
+		//console.log("ready!");
+		MathJax.Hub.Queue([ "Typeset", MathJax.Hub ]);
+		window.scrollTo(0, document.body.scrollHeight + 100);
+	});
 	$(function() {
 
 		$("#earthMoon01").click(function() {
 			$("#pageContent").load("applications/earthMoon01.html");
 			setCookie('currentPage', 'applications/earthMoon01.html', 100);
 		});
-
+		MathJax.Hub.Register.StartupHook("End", function() {
+			window.scrollTo(0, document.body.scrollHeight + 100);
+		});
 	});
 </script>
 
@@ -45,12 +56,17 @@
 
 	<img src="applications/images/earthMoon01.jpeg" alt="m" width="360">
 	<br>The total force on the spacecraft is the sum of the forces by earth and by the moon
-
+	<br> $$\mathbf{F}=\mathbf{F_E}+\mathbf{F_L}$$
 	<!--  -->
-	<br>
+	where
+	<br>$$\mathbf{F_E}=-m\frac{GM_E}{{r_E}^3}\hat{\mathbf{r_E}}$$
+	<br>$$\mathbf{F_L}=-m\frac{GM_L}{{r_L}^3}\hat{\mathbf{r_L}}$$
+	<br>The acceleration is
+	$$\mathbf{a}=\frac{\mathbf{F}}{m}=-\frac{GM_E}{{r_E}^3}\hat{\mathbf{r_E}}-\frac{GM_L}{{r_L}^3}\hat{\mathbf{r_L}}$$
 
-	When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 
+
+	<button id="refresh" onclick="refresh_func()">refresh</button>
 	<br>
 	<label id="earthMoon01">application</label>
 
