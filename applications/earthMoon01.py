@@ -23,21 +23,11 @@ y0=decoded['y0']
 vx0=decoded['vx0']
 vy0=decoded['vy0']
 z0=0
-GM=decoded['GM']
+GMearth=decoded['GMearth']
 t0=decoded['t0']
 deltat=decoded['deltat']
 
 #f=randint(1,9)
-
-#GM = 1.5
-
-#print GM/2
-#r = math.sqrt(x0 * x0 + y0 * y0 + z0 * z0)    
-#rcubed = r * r * r
-#print rcubed
-#muorc = -1.0 * GM / rcubed
-#print muorc
-
 
 def moonPosition(t):    
     mx=300000*np.sin(m_omega*t)
@@ -88,7 +78,7 @@ try:
 
     #t = np.arange(0.0, 2.0, 0.01)
     
-    t = np.linspace(0, deltat, 20)
+    t = np.linspace(t0, deltat, 20)
     mx=300000*np.sin(m_omega*t)
     my=300000*np.cos(m_omega*t)
     #print t

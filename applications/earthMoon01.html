@@ -7,8 +7,8 @@
 
 
 <script type="text/javascript">
-	earthGM = 398600.441890000;
-	sunGM = 132712440018.;
+	GMearth = 398600.441890000;
+	GMmoon =4902.794;
 	central = "Earth";
 
 	function earthMoon01_func() {
@@ -16,7 +16,8 @@
 		myParams = {
 			py : "earthMoon01.py",
 			central : central,
-			GM : $("#GM").spinner("value"),
+			GMearth : $("#GMearth").spinner("value"),
+			GMmoon : $("#GMmoon").spinner("value"),
 			x0 : $("#x0").spinner("value"),
 			y0 : $("#y0").spinner("value"),
 			vx0 : $("#vx0").spinner("value"),
@@ -30,11 +31,16 @@
 
 	$(document).ready(function() {
 
-		$("#GM").spinner({
+		$("#GMearth").spinner({
 			step : 1.0,
 			numberFormat : "n",
 		});
-		$("#GM").width(100);
+		$("#GMearth").width(90);
+		$("#GMmoon").spinner({
+			step : 1.0,
+			numberFormat : "n",
+		});
+		$("#GMmoon").width(90);
 		$("#x0").spinner({
 			step : 0.1,
 			numberFormat : "n",
@@ -66,19 +72,25 @@
 		});
 		$("#deltat").width(80);
 
-		$('#GM').val(earthGM);
+		$('#GMearth').val(GMearth);
+		$('#GMmoon').val(GMmoon);
 		$('#x0').val("0");
 		$('#y0').val("6678");
 		$('#vx0').val("7.73");
 		$('#vy0').val("0");
 		$('#deltat').val("86400");
-		$('#GM').spinner("disable");
+		$('#GMearth').spinner("disable");
+		$('#GMmoon').spinner("disable");
 
 
 	});
 
 	$(function() {
 
+		$("#earthMoon01doc").click(function() {
+			$("#pageContent").load("applications/earthMoon01doc.html");
+			setCookie('currentPage', 'applications/earthMoon01doc.html', 100);
+		});
 
 	});
 </script>
@@ -96,7 +108,9 @@
 		</div>
 		<div id="sidebar">
 			<!--  -->
-			<label for="spinner">GM:</label> <input id="GM" name="value" value="3000.0">	<br>
+			<label for="spinner">GMearth:</label> <input id="GMearth" name="value" value="3000.0">	<br>
+			<!--  -->
+			<label for="spinner">GMmoon:</label> <input id="GMmoon" name="value" value="3000.0">	<br>
 			<!--  -->
 			<label for="spinner">x0:</label> <input id="x0" name="value" value="0">km<br>
 			<!--  -->
@@ -110,6 +124,9 @@
 			<!--  -->
 			<label for="spinner">&Delta;t:</label> <input id="deltat" name="value" value="60">s<br>
 			<button id="earthMoon01" onclick="earthMoon01_func()">plot</button>
+			<!--  -->
+			<br><br>
+			<label id="earthMoon01doc">documentation</label>
 		</div>
 		<div id="cleared"></div>
 	</div>

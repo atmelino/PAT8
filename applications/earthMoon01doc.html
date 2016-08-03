@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="applications/app.css">
+<link rel="stylesheet" href="lib/katex/katex.min.css">
+<script src="lib/katex/katex.min.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+
+		$("#earthMoon01").click(function() {
+			$("#pageContent").load("applications/earthMoon01.html");
+			setCookie('currentPage', 'applications/earthMoon01.html', 100);
+		});
+
+	});
+</script>
+
+
+
+</head>
+<body>
+	<img src="applications/images/earthMoon01.jpeg" alt="m" width="360">
+
+	<div id="results" class="katex"></div>
+	<script>
+		var eq = 'f(x) = \\int_{-\\infty}^\\infty\\hat f(\\xi)\\,e^{2 \\pi i \\xi x}\\,d\\xi';
+		//var eq = "f(x) = \\pm\\sqrt{a^2 + b^2}"
+		katex.render(eq, document.getElementById('results'));
+	</script>
+	<!--  -->
+	<br>
+	<br>
+	<label id="earthMoon01">application</label>
+
+
+</body>
+</html>
