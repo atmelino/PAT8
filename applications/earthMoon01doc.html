@@ -4,8 +4,6 @@
 <meta content="text/html; charset=UTF-8" http-equiv="content-type">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="applications/app.css">
-<link rel="stylesheet" href="lib/katex/katex.min.css">
-<script src="lib/katex/katex.min.js"></script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
@@ -18,11 +16,6 @@
 			function() {
 				//console.log("ready!");
 
-				var html = katex.renderToString("c = \\pm\\sqrt{a^2 + b^2}");
-				var eq = ' \mathbf{y}_A F=F_E+F_M';
-				katex.render(eq, document.getElementById('eq1'));
-				katex.render("c = \\pm\\sqrt{a^2 + b^2}", document
-						.getElementById('eq2'));
 				window.scrollTo(0, document.body.scrollHeight);
 			});
 	$(function() {
@@ -53,13 +46,8 @@
 	<img src="applications/images/earthMoon01.jpeg" alt="m" width="360">
 	<br>The total force on the spacecraft is the sum of the forces by earth and by the moon
 
-	<div id="eq1" class="katex"></div>
-	<div id="eq2" class="katex"></div>
 	<!--  -->
 	<br>
-	<p>
-		<span class="katex">...</span>
-	</p>
 
 	When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 
