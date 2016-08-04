@@ -48,23 +48,36 @@
 
 	<ul>
 		<li>The moon orbits the earth on a circle of 300,000 km radius</li>
-		<li></li>
+		<li>The center of the reference frame is always at the center of the earth</li>
 		<li></li>
 	</ul>
 
 	<h3>Derivation of the equations of motion</h3>
 
 	<img src="applications/images/earthMoon01.jpeg" alt="m" width="360">
-	<br>The total force on the spacecraft is the sum of the forces by earth and by the moon
-	<br> $$\mathbf{F}=\mathbf{F_E}+\mathbf{F_L}$$
+	<br>The position of the spacecraft is $\mathbf{r}$. Furthermore, $$\mathbf{r_E}=\mathbf{r}$$
+	$$\mathbf{r_L}=\mathbf{r_M}-\mathbf{r_E}$$
+	<br>In components:
+	<br>$$ \mathbf{r_E}=\begin{bmatrix} x \\ y \\ z\end{bmatrix}$$
+	<br>$$ \mathbf{r_L}=\begin{bmatrix} x_M-x \\ y_M-y \\ z_M-z\end{bmatrix}$$
+	<br> The length of the vectors is
+	<br>$$ r_E=\sqrt{ x^2 + y^2 + z^2}$$
+	<br>$$ r_L=\sqrt{ (x_M-x)^2 + (y_M-y)^2 + (z_M-z)^2}$$
 	<!--  -->
-	where
-	<br>$$\mathbf{F_E}=-m\frac{GM_E}{{r_E}^3}\hat{\mathbf{r_E}}$$
-	<br>$$\mathbf{F_L}=-m\frac{GM_L}{{r_L}^3}\hat{\mathbf{r_L}}$$
+	<br>The total force on the spacecraft is the sum of the forces by earth and by the moon
+	<br> $$\mathbf{F}=\mathbf{F_E}+\mathbf{F_L}$$ where
+	<br>$$\mathbf{F_E}=-m\frac{GM_E}{{r_E}^2}\hat{\mathbf{r_E}}$$
+	<br>$$\mathbf{F_L}=-m\frac{GM_L}{{r_L}^2}\hat{\mathbf{r_L}}$$
 	<br>The acceleration is
-	$$\mathbf{a}=\frac{\mathbf{F}}{m}=-\frac{GM_E}{{r_E}^3}\hat{\mathbf{r_E}}-\frac{GM_L}{{r_L}^3}\hat{\mathbf{r_L}}$$
+	$$\mathbf{a}=\frac{\mathbf{F}}{m}=\ddot{\mathbf{r}}=-\frac{GM_E}{{r_E}^2}\hat{\mathbf{r_E}}-\frac{GM_L}{{r_L}^2}\hat{\mathbf{r_L}}$$
+	Another way of writing this is
+	$$\mathbf{a}=\frac{\mathbf{F}}{m}=\ddot{\mathbf{r}}=-\frac{GM_E}{{r_E}^3}\mathbf{r_E}-\frac{GM_L}{{r_L}^3}\mathbf{r_L}$$
 
 
+	In components:
+	<br>$$\ddot{x}=-\frac{GM_E}{{r_E}^3}x-\frac{GM_L}{{r_L}^3}(x_M-x)$$
+	<br>$$\ddot{y}=-\frac{GM_E}{{r_E}^3}y-\frac{GM_L}{{r_L}^3}(y_M-x)$$
+	<br>$$\ddot{z}=-\frac{GM_E}{{r_E}^3}z-\frac{GM_L}{{r_L}^3}(z_M-x)$$
 
 	<button id="refresh" onclick="refresh_func()">refresh</button>
 	<br>
