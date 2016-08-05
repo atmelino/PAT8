@@ -54,7 +54,7 @@ def acceleration(r_vec, t):
     rLcubed = rL * rL * rL
     GMm_over_r3 =  GMmoon / rLcubed
     ax=-GMe_over_r3 * x-GMm_over_r3 * xL
-    ay= -GMe_over_r3 * y
+    ay= -GMe_over_r3 * y-GMm_over_r3 * yL
     az= -GMe_over_r3 * z
     drdt = [vx, vy, vz, ax,ay,az]
     return drdt
@@ -115,7 +115,8 @@ try:
     #plt.xlim(-plotsize, plotsize)
     #plt.ylim(-plotsize, plotsize)
     
-    plotsize=1.01*300000    
+    #plotsize=1.01*300000    
+    plotsize=1.2*300000    
     plt.xlim(-plotsize, plotsize)
     plt.ylim(-plotsize, plotsize)
 

@@ -8,7 +8,8 @@
 
 <script type="text/javascript">
 	GMearth = 398600.441890000;
-	GMmoon = 4902.794;
+	//GMmoon = 4902.794;
+	GMmoon = 490279;
 	central = "Earth";
 
 	function earthMoon01_func() {
@@ -74,11 +75,12 @@
 
 		$('#GMearth').val(GMearth);
 		$('#GMmoon').val(GMmoon);
-		$('#x0').val("0");
-		$('#y0').val("6678");
-		$('#vx0').val("7.73");
-		$('#vy0').val("0");
-		$('#deltat').val("86400");
+		$('#x0').val("-6678");
+		$('#y0').val("0");
+		$('#vx0').val("0");
+		$('#vy0').val("10.81");
+		$('#t0').val("390000");
+		$('#deltat').val("259200");
 		$('#GMearth').spinner("disable");
 		$('#GMmoon').spinner("disable");
 
@@ -109,7 +111,7 @@
 	<div id="wrapper">
 		<div id="content">
 			<div>
-				<img src="applications/writeFiles/earthMoon01.png" id="earthMoon01Image" height="400" />
+				<img src="applications/writeFiles/earthMoon01.png" id="earthMoon01Image" height="480" />
 			</div>
 		</div>
 		<div id="sidebar">
