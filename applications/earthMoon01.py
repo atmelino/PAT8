@@ -83,7 +83,7 @@ try:
 
     #t = np.arange(0.0, 2.0, 0.01)
     
-    tarray = np.linspace(t0, t0+deltat, 150)
+    tarray = np.linspace(t0, t0+deltat, 10000)
     mx=300000*np.sin(m_omega*tarray)
     my=300000*np.cos(m_omega*tarray)
     #print t
@@ -124,7 +124,7 @@ try:
     print 'y_vec0 ',y_vec0,
 
     sol = odeint(acceleration, y_vec0, tarray)
-    print sol
+    #print sol
     plt.plot(sol[:, 0], sol[:, 1])
     
     plt.gca().set_aspect('equal', adjustable='box')
