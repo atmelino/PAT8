@@ -83,7 +83,7 @@ try:
 
     #t = np.arange(0.0, 2.0, 0.01)
     
-    tarray = np.linspace(t0, t0+deltat, 50)
+    tarray = np.linspace(t0, t0+deltat, 150)
     mx=300000*np.sin(m_omega*tarray)
     my=300000*np.cos(m_omega*tarray)
     #print t
