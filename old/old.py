@@ -1,5 +1,9 @@
 
 
+
+def moonPositionx(t):    
+    return 300000
+
     #dxdt[0] = vx;
     #dxdt[1] = vy;
     #dxdt[2] = vz;

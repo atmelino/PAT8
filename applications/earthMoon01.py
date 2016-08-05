@@ -10,6 +10,8 @@ import math
 import json
 import sys
 
+m_period=27.321661547*86400
+m_omega=2*np.pi/m_period
 #print 'Argument List:', str(sys.argv)
 #print sys.argv[1:2]
 #print sys.argv[1]
@@ -24,6 +26,7 @@ vx0=decoded['vx0']
 vy0=decoded['vy0']
 z0=0
 GMearth=decoded['GMearth']
+GMmoon=decoded['GMmoon']
 t0=decoded['t0']
 deltat=decoded['deltat']
 
@@ -32,19 +35,28 @@ deltat=decoded['deltat']
 def moonPosition(t):    
     mx=300000*np.sin(m_omega*t)
     my=300000*np.cos(m_omega*t)
-    mr=[mx,my]
-    return mr
-    
-def moonPositionx(t):    
-    return 300000
+    mz=0
+    mr=[mx,my,mz]
+    return mr    
     
 def acceleration(r_vec, t):
     x, y, z, vx, vy, vz = r_vec
-    r = math.sqrt(x * x + y * y + z * z)    
-    rcubed = r * r * r
-    muorc = -1.0 * GM / rcubed
+    rE = math.sqrt(x * x + y * y + z * z)    
+    rEcubed = rE * rE * rE
+    #GMe_over_r3 = -1.0 * GMearth / rcubed
+    GMe_over_r3 =  GMearth / rEcubed
     #print r
-    drdt = [vx, vy, vz, muorc * x, muorc * y, muorc * z]
+    xM,yM,zM=moonPosition(t)
+    xL=xM-x
+    yL=yM-y
+    zL=xM-z
+    rL = math.sqrt(xL * xL + yL * yL + zL * zL)    
+    rLcubed = rL * rL * rL
+    GMm_over_r3 =  GMmoon / rLcubed
+    ax=-GMe_over_r3 * x-GMm_over_r3 * xL
+    ay= -GMe_over_r3 * y
+    az= -GMe_over_r3 * z
+    drdt = [vx, vy, vz, ax,ay,az]
     return drdt
 
 def npmax(l):
@@ -60,14 +72,7 @@ def npmin(l):
     return min_val
 
 
-y_vec0 = [x0, y0, 0, vx0, vy0, 0]
-#y_vec0 = [0, 20, 0, 16, 0, 0]
-print 'y_vec0 ',y_vec0,
 
-#sol = odeint(acceleration, y_vec0, t)
-
-m_period=27.321661547*86400
-m_omega=2*np.pi/m_period
 
 try:
     os.remove("writeFiles/earthMoon01.png")
@@ -78,14 +83,14 @@ try:
 
     #t = np.arange(0.0, 2.0, 0.01)
     
-    t = np.linspace(t0, deltat, 20)
-    mx=300000*np.sin(m_omega*t)
-    my=300000*np.cos(m_omega*t)
+    tarray = np.linspace(t0, t0+deltat, 50)
+    mx=300000*np.sin(m_omega*tarray)
+    my=300000*np.cos(m_omega*tarray)
     #print t
     #print mx
     
-    mr=moonPosition(20000)
-    print mr
+    #mr=moonPosition(20000)
+    #print mr
 
 
 
@@ -114,6 +119,12 @@ try:
     plt.xlim(-plotsize, plotsize)
     plt.ylim(-plotsize, plotsize)
 
+    y_vec0 = [x0, y0, 0, vx0, vy0, 0]
+    print 'y_vec0 ',y_vec0,
+
+    sol = odeint(acceleration, y_vec0, tarray)
+    print sol
+    plt.plot(sol[:, 0], sol[:, 1])
     
     plt.gca().set_aspect('equal', adjustable='box')
     plt.draw()

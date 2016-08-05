@@ -23,26 +23,19 @@
 	border-color: #bbb;
 	color: #594F4F;
 	background-color: #E0FFEB;
-	width: 25%;
+	/*width: 25%;*/
 	text-align: center;
 }
 
-.tg th {
-	font-family: Arial, sans-serif;
-	font-size: 14px;
-	font-weight: normal;
-	padding: 10px 5px;
-	border-style: solid;
-	border-width: 1px;
-	overflow: hidden;
-	word-break: normal;
-	border-color: #bbb;
-	color: #493F3F;
-	background-color: #9DE0AD;
+.tg .tg-bold {
+	vertical-align: top;
+	font-weight: bold;
 }
 
-.tg .tg-yw4l {
-	vertical-align: top
+.tg .tg-it {
+	vertical-align: top;
+	font-style: italic;
+	width: 12.5%;
 }
 </style>
 
@@ -74,6 +67,14 @@
 			$("#pageContent").load("applications/earthMoon01.html");
 			setCookie('currentPage', 'applications/earthMoon01.html', 100);
 		});
+		$("#earthMoon01app").click(function() {
+			$("#pageContent").load("applications/earthMoon01.html");
+			setCookie('currentPage', 'applications/earthMoon01.html', 100);
+		});
+		$("#earthMoon01doc").click(function() {
+			$("#pageContent").load("applications/earthMoon01doc.html");
+			setCookie('currentPage', 'applications/earthMoon01doc.html', 100);
+		});
 
 	});
 </script>
@@ -84,37 +85,36 @@
 
 	<table class="tg">
 		<tr>
-			<th class="tg-yw4l"></th>
-			<th class="tg-yw4l"></th>
-			<th class="tg-yw4l"></th>
-			<th class="tg-yw4l"></th>
+			<td class="tg-bold" id="fileWrite" colspan=2>fileWrite</td>
+			<td class="tg-bold" id="sinePlot" colspan=2>sinePlot</td>
+			<td class="tg-bold" id="integration01" colspan=2>integration01</td>
+			<td class="tg-bold" id="integration02" colspan=2>integration02</td>
 		</tr>
 		<tr>
-			<td class="tg-yw4l" id="fileWrite">fileWrite</td>
-			<td class="tg-yw4l" id="sinePlot">sinePlot</td>
-			<td class="tg-yw4l" id="integration01">integration01</td>
-			<td class="tg-yw4l" id="integration02">integration02</td>
+			<td class="tg-it">app</td>
+			<td class="tg-it"></td>
+			<td class="tg-it">app</td>
+			<td class="tg-it"></td>
+			<td class="tg-it">app</td>
+			<td class="tg-it"></td>
+			<td class="tg-it">app</td>
+			<td class="tg-it"></td>
 		</tr>
 		<tr>
-			<td class="tg-yw4l" id="orbitTest01">orbitTest01</td>
-			<td class="tg-yw4l" id="earthMoon01"><table>
-					<tr>
-						<td>earthMoon01</td>
-					</tr>
-					<tr>
-						<td>app</td>
-						<td>doc</td>
-					</tr>
-
-				</table></td>
-			<td class="tg-yw4l"></td>
-			<td class="tg-yw4l"></td>
+			<td class="tg-bold" id="orbitTest01" colspan=2>orbitTest01</td>
+			<td class="tg-bold" id="earthMoon01" colspan=2>earthMoon01</td>
+			<td class="tg-bold" colspan=2>moonLand01</td>
+			<td class="tg-bold" colspan=2></td>
 		</tr>
 		<tr>
-			<td class="tg-yw4l"></td>
-			<td class="tg-yw4l"></td>
-			<td class="tg-yw4l"></td>
-			<td class="tg-yw4l"></td>
+			<td class="tg-it">app</td>
+			<td class="tg-it"></td>
+			<td class="tg-it" id="earthMoon01app">app</td>
+			<td class="tg-it" id="earthMoon01doc">doc</td>
+			<td class="tg-it">app</td>
+			<td class="tg-it">doc</td>
+			<td class="tg-it">app</td>
+			<td class="tg-it">doc</td>
 		</tr>
 	</table>
 
