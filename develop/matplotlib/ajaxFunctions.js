@@ -21,7 +21,7 @@ function ajax_callPython01(myParams) {
 	ajaxcallPython01.onreadystatechange = ajaxCalled_callPython01;
 	// printlnMessage('messages', JSON.stringify(myParams));
 	var requeststring;
-	requeststring = "applications/pythonCall.php?json=" + JSON.stringify(myParams);
+	requeststring = "develop/matplotlib/pythonCall.php?json=" + JSON.stringify(myParams);
 	printlnMessage('messages', "ajax: " + requeststring);
 	ajaxcallPython01.open("GET", encodeURI(requeststring), true);
 	ajaxcallPython01.send(null);
@@ -41,31 +41,19 @@ function ajaxCalled_callPython01() {
 		if (callPython01JSON.py == "sinePlot.py") {
 			printlnMessage('messages', "reload image");
 			rnd = Math.random();
-			document.getElementById("sinePlotImage").src = "applications/writeFiles/sinePlot.png?rnd="
+			document.getElementById("sinePlotImage").src = "develop/matplotlib/writeFiles/sinePlot.png?rnd="
 					+ rnd;
 		}
 		if (callPython01JSON.py == "integration01.py") {
 			printlnMessage('messages', "reload image");
 			rnd = Math.random();
-			document.getElementById("integration01Image").src = "applications/writeFiles/integration01.png?rnd="
+			document.getElementById("integration01Image").src = "develop/matplotlib/writeFiles/integration01.png?rnd="
 					+ rnd;
 		}
 		if (callPython01JSON.py == "integration02.py") {
 			printlnMessage('messages', "reload image");
 			rnd = Math.random();
-			document.getElementById("integration02Image").src = "applications/writeFiles/integration02.png?rnd="
-					+ rnd;
-		}
-		if (callPython01JSON.py == "orbitTest01.py") {
-			printlnMessage('messages', "reload image");
-			rnd = Math.random();
-			document.getElementById("orbitTest01Image").src = "applications/writeFiles/orbitTest01.png?rnd="
-					+ rnd;
-		}
-		if (callPython01JSON.py == "earthMoon01.py") {
-			printlnMessage('messages', "reload image");
-			rnd = Math.random();
-			document.getElementById("earthMoon01Image").src = "applications/writeFiles/earthMoon01.png?rnd="
+			document.getElementById("integration02Image").src = "develop/matplotlib/writeFiles/integration02.png?rnd="
 					+ rnd;
 		}
 	}

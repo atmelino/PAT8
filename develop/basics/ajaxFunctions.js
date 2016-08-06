@@ -21,7 +21,7 @@ function ajax_callPython01(myParams) {
 	ajaxcallPython01.onreadystatechange = ajaxCalled_callPython01;
 	// printlnMessage('messages', JSON.stringify(myParams));
 	var requeststring;
-	requeststring = "applications/pythonCall.php?json=" + JSON.stringify(myParams);
+	requeststring = "develop/basics/pythonCall.php?json=" + JSON.stringify(myParams);
 	printlnMessage('messages', "ajax: " + requeststring);
 	ajaxcallPython01.open("GET", encodeURI(requeststring), true);
 	ajaxcallPython01.send(null);
@@ -38,17 +38,8 @@ function ajaxCalled_callPython01() {
 		callPython01JSON = JSON.parse(callPython01message);
 		//printlnMessage('messages', callPython01JSON.py);
 
-		if (callPython01JSON.py == "orbitTest01.py") {
-			printlnMessage('messages', "reload image");
-			rnd = Math.random();
-			document.getElementById("orbitTest01Image").src = "applications/writeFiles/orbitTest01.png?rnd="
-					+ rnd;
-		}
-		if (callPython01JSON.py == "earthMoon01.py") {
-			printlnMessage('messages', "reload image");
-			rnd = Math.random();
-			document.getElementById("earthMoon01Image").src = "applications/writeFiles/earthMoon01.png?rnd="
-					+ rnd;
+		if (callPython01JSON.py == "fileWrite.py") {
+			printlnMessage('messages', "file write end");
 		}
 	}
 }

@@ -43,22 +43,7 @@
 <script type="text/javascript">
 	$(function() {
 
-		$("#fileWrite").click(function() {
-			$("#pageContent").load("applications/fileWrite.html");
-			setCookie('currentPage', 'applications/fileWrite.html', 100);
-		});
-		$("#sinePlot").click(function() {
-			$("#pageContent").load("applications/sinePlot.html");
-			setCookie('currentPage', 'applications/sinePlot.html', 100);
-		});
-		$("#integration01").click(function() {
-			$("#pageContent").load("applications/integration01.html");
-			setCookie('currentPage', 'applications/integration01.html', 100);
-		});
-		$("#integration02").click(function() {
-			$("#pageContent").load("applications/integration02.html");
-			setCookie('currentPage', 'applications/integration02.html', 100);
-		});
+		// applications
 		$("#orbitTest01").click(function() {
 			$("#pageContent").load("applications/orbitTest01.html");
 			setCookie('currentPage', 'applications/orbitTest01.html', 100);
@@ -75,9 +60,27 @@
 			$("#pageContent").load("applications/earthMoon01doc.html");
 			setCookie('currentPage', 'applications/earthMoon01doc.html', 100);
 		});
+
+		// develop
+		$("#fileWrite").click(function() {
+			$("#pageContent").load("develop/basics/fileWrite.html");
+			setCookie('currentPage', 'develop/basics/fileWrite.html', 100);
+		});
+		$("#sinePlot").click(function() {
+			$("#pageContent").load("develop/matplotlib/sinePlot.html");
+			setCookie('currentPage', 'develop/matplotlib/sinePlot.html', 100);
+		});
+		$("#integration01").click(function() {
+			$("#pageContent").load("develop/matplotlib/integration01.html");
+			setCookie('currentPage', 'develop/matplotlib/integration01.html', 100);
+		});
+		$("#integration02").click(function() {
+			$("#pageContent").load("develop/matplotlib/integration02.html");
+			setCookie('currentPage', 'develop/matplotlib/integration02.html', 100);
+		});
 		$("#mpld301").click(function() {
-			$("#pageContent").load("applications/mpld301.html");
-			setCookie('currentPage', 'applications/mpld301.html', 100);
+			$("#pageContent").load("develop/mpld3/mpld301.html");
+			setCookie('currentPage', 'develop/mpld3/mpld301.html', 100);
 		});
 
 	});

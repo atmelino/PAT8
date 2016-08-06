@@ -3,6 +3,10 @@ import time
 import traceback
 
 i=5
+print i
+
+
+
 try:
     print i
     i=i+1
@@ -11,10 +15,11 @@ try:
     output="%s %8d Hello World again\n" %(curdate,i)
     fh.write(output)
     fh.close 
-    time.sleep(1)
+    #time.sleep(1)
+    
 except Exception:
     print(traceback.format_exc())
     print "exception"
     print "end"
-        
+
 
