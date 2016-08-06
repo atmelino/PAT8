@@ -1,0 +1,699 @@
+
+<html>
+<head>
+<title>mpld3 plot</title>
+</head>
+<body>
+
+
+	<style>
+</style>
+
+	<div id="fig_el69491400642770359848065210481"></div>
+	<script>
+		function mpld3_load_lib(url, callback) {
+			var s = document.createElement('script');
+			s.src = url;
+			s.async = true;
+			s.onreadystatechange = s.onload = callback;
+			s.onerror = function() {
+				console.warn("failed to load library " + url);
+			};
+			document.getElementsByTagName("head")[0].appendChild(s);
+		}
+
+		if (typeof (mpld3) !== "undefined" && mpld3._mpld3IsLoaded) {
+			// already loaded: just create the figure
+			!function(mpld3) {
+
+				mpld3
+						.draw_figure(
+								"fig_el69491400642770359848065210481",
+								{
+									"axes" : [ {
+										"xlim" : [ -1.5, 1.0 ],
+										"yscale" : "linear",
+										"axesbg" : "#EEEEEE",
+										"texts" : [ {
+											"v_baseline" : "auto",
+											"h_anchor" : "middle",
+											"color" : "#000000",
+											"text" : "Scatter Plot (with tooltips!)",
+											"coordinates" : "axes",
+											"zorder" : 3,
+											"alpha" : 1,
+											"fontsize" : 20.0,
+											"position" : [ 0.5,
+													1.0144675925925926 ],
+											"rotation" : -0.0,
+											"id" : "el6949140064258922576"
+										} ],
+										"zoomable" : true,
+										"images" : [],
+										"xdomain" : [ -1.5, 1.0 ],
+										"ylim" : [ -0.60000000000000009,
+												0.39999999999999991 ],
+										"paths" : [],
+										"sharey" : [],
+										"sharex" : [],
+										"axesbgalpha" : null,
+										"axes" : [ {
+											"scale" : "linear",
+											"tickformat" : null,
+											"grid" : {
+												"color" : "#FFFFFF",
+												"alpha" : 1.0,
+												"dasharray" : "10,0",
+												"gridOn" : true
+											},
+											"fontsize" : 12.0,
+											"position" : "bottom",
+											"nticks" : 6,
+											"tickvalues" : null
+										}, {
+											"scale" : "linear",
+											"tickformat" : null,
+											"grid" : {
+												"color" : "#FFFFFF",
+												"alpha" : 1.0,
+												"dasharray" : "10,0",
+												"gridOn" : true
+											},
+											"fontsize" : 12.0,
+											"position" : "left",
+											"nticks" : 7,
+											"tickvalues" : null
+										} ],
+										"lines" : [],
+										"markers" : [],
+										"id" : "el6949140064276614032",
+										"ydomain" : [ -0.60000000000000009,
+												0.39999999999999991 ],
+										"collections" : [ {
+											"paths" : [ [
+													[
+															[ 0.0, -0.5 ],
+															[ 0.13260155, -0.5 ],
+															[
+																	0.25978993539242673,
+																	-0.44731684579412084 ],
+															[
+																	0.3535533905932738,
+																	-0.3535533905932738 ],
+															[
+																	0.44731684579412084,
+																	-0.25978993539242673 ],
+															[ 0.5, -0.13260155 ],
+															[ 0.5, 0.0 ],
+															[ 0.5, 0.13260155 ],
+															[
+																	0.44731684579412084,
+																	0.25978993539242673 ],
+															[
+																	0.3535533905932738,
+																	0.3535533905932738 ],
+															[
+																	0.25978993539242673,
+																	0.44731684579412084 ],
+															[ 0.13260155, 0.5 ],
+															[ 0.0, 0.5 ],
+															[ -0.13260155, 0.5 ],
+															[
+																	-0.25978993539242673,
+																	0.44731684579412084 ],
+															[
+																	-0.3535533905932738,
+																	0.3535533905932738 ],
+															[
+																	-0.44731684579412084,
+																	0.25978993539242673 ],
+															[ -0.5, 0.13260155 ],
+															[ -0.5, 0.0 ],
+															[ -0.5, -0.13260155 ],
+															[
+																	-0.44731684579412084,
+																	-0.25978993539242673 ],
+															[
+																	-0.3535533905932738,
+																	-0.3535533905932738 ],
+															[
+																	-0.25978993539242673,
+																	-0.44731684579412084 ],
+															[ -0.13260155, -0.5 ],
+															[ 0.0, -0.5 ] ],
+													[ "M", "C", "C", "C", "C",
+															"C", "C", "C", "C",
+															"Z" ] ] ],
+											"edgecolors" : [ "#000000" ],
+											"edgewidths" : [ 1.0 ],
+											"offsets" : "data01",
+											"yindex" : 1,
+											"id" : "el6949140064258609552",
+											"pathtransforms" : [
+													[ 10.478402806268356, 0.0,
+															0.0,
+															10.478402806268356,
+															0.0, 0.0 ],
+													[ 34.10212376594731, 0.0,
+															0.0,
+															34.10212376594731,
+															0.0, 0.0 ] ],
+											"pathcoordinates" : "display",
+											"offsetcoordinates" : "data",
+											"zorder" : 1,
+											"xindex" : 0,
+											"alphas" : [ 0.3 ],
+											"facecolors" : [ "#7F0000",
+													"#00007F" ]
+										} ],
+										"xscale" : "linear",
+										"bbox" : [ 0.125, 0.099999999999999978,
+												0.77500000000000002,
+												0.80000000000000004 ]
+									} ],
+									"height" : 480.0,
+									"width" : 640.0,
+									"plugins" : [ {
+										"type" : "reset"
+									}, {
+										"enabled" : false,
+										"button" : true,
+										"type" : "zoom"
+									}, {
+										"enabled" : false,
+										"button" : true,
+										"type" : "boxzoom"
+									}, {
+										"voffset" : 10,
+										"labels" : [ "point 1", "point 2" ],
+										"hoffset" : 0,
+										"location" : "mouse",
+										"type" : "tooltip",
+										"id" : "el6949140064258609552"
+									} ],
+									"data" : {
+										"data01" : [
+												[ -1.3081263884160768,
+														-0.5084671350588154 ],
+												[ 0.7528189111040033,
+														0.31801713714383706 ] ]
+									},
+									"id" : "el6949140064277035984"
+								});
+			}(mpld3);
+		} else if (typeof define === "function" && define.amd) {
+			// require.js is available: use it to load d3/mpld3
+			require.config({
+				paths : {
+					d3 : "/d3"
+				}
+			});
+			require(
+					[ "d3" ],
+					function(d3) {
+						window.d3 = d3;
+						mpld3_load_lib(
+								"/mpld3.js",
+								function() {
+
+									mpld3
+											.draw_figure(
+													"fig_el69491400642770359848065210481",
+													{
+														"axes" : [ {
+															"xlim" : [ -1.5,
+																	1.0 ],
+															"yscale" : "linear",
+															"axesbg" : "#EEEEEE",
+															"texts" : [ {
+																"v_baseline" : "auto",
+																"h_anchor" : "middle",
+																"color" : "#000000",
+																"text" : "Scatter Plot (with tooltips!)",
+																"coordinates" : "axes",
+																"zorder" : 3,
+																"alpha" : 1,
+																"fontsize" : 20.0,
+																"position" : [
+																		0.5,
+																		1.0144675925925926 ],
+																"rotation" : -0.0,
+																"id" : "el6949140064258922576"
+															} ],
+															"zoomable" : true,
+															"images" : [],
+															"xdomain" : [ -1.5,
+																	1.0 ],
+															"ylim" : [
+																	-0.60000000000000009,
+																	0.39999999999999991 ],
+															"paths" : [],
+															"sharey" : [],
+															"sharex" : [],
+															"axesbgalpha" : null,
+															"axes" : [
+																	{
+																		"scale" : "linear",
+																		"tickformat" : null,
+																		"grid" : {
+																			"color" : "#FFFFFF",
+																			"alpha" : 1.0,
+																			"dasharray" : "10,0",
+																			"gridOn" : true
+																		},
+																		"fontsize" : 12.0,
+																		"position" : "bottom",
+																		"nticks" : 6,
+																		"tickvalues" : null
+																	},
+																	{
+																		"scale" : "linear",
+																		"tickformat" : null,
+																		"grid" : {
+																			"color" : "#FFFFFF",
+																			"alpha" : 1.0,
+																			"dasharray" : "10,0",
+																			"gridOn" : true
+																		},
+																		"fontsize" : 12.0,
+																		"position" : "left",
+																		"nticks" : 7,
+																		"tickvalues" : null
+																	} ],
+															"lines" : [],
+															"markers" : [],
+															"id" : "el6949140064276614032",
+															"ydomain" : [
+																	-0.60000000000000009,
+																	0.39999999999999991 ],
+															"collections" : [ {
+																"paths" : [ [
+																		[
+																				[
+																						0.0,
+																						-0.5 ],
+																				[
+																						0.13260155,
+																						-0.5 ],
+																				[
+																						0.25978993539242673,
+																						-0.44731684579412084 ],
+																				[
+																						0.3535533905932738,
+																						-0.3535533905932738 ],
+																				[
+																						0.44731684579412084,
+																						-0.25978993539242673 ],
+																				[
+																						0.5,
+																						-0.13260155 ],
+																				[
+																						0.5,
+																						0.0 ],
+																				[
+																						0.5,
+																						0.13260155 ],
+																				[
+																						0.44731684579412084,
+																						0.25978993539242673 ],
+																				[
+																						0.3535533905932738,
+																						0.3535533905932738 ],
+																				[
+																						0.25978993539242673,
+																						0.44731684579412084 ],
+																				[
+																						0.13260155,
+																						0.5 ],
+																				[
+																						0.0,
+																						0.5 ],
+																				[
+																						-0.13260155,
+																						0.5 ],
+																				[
+																						-0.25978993539242673,
+																						0.44731684579412084 ],
+																				[
+																						-0.3535533905932738,
+																						0.3535533905932738 ],
+																				[
+																						-0.44731684579412084,
+																						0.25978993539242673 ],
+																				[
+																						-0.5,
+																						0.13260155 ],
+																				[
+																						-0.5,
+																						0.0 ],
+																				[
+																						-0.5,
+																						-0.13260155 ],
+																				[
+																						-0.44731684579412084,
+																						-0.25978993539242673 ],
+																				[
+																						-0.3535533905932738,
+																						-0.3535533905932738 ],
+																				[
+																						-0.25978993539242673,
+																						-0.44731684579412084 ],
+																				[
+																						-0.13260155,
+																						-0.5 ],
+																				[
+																						0.0,
+																						-0.5 ] ],
+																		[
+																				"M",
+																				"C",
+																				"C",
+																				"C",
+																				"C",
+																				"C",
+																				"C",
+																				"C",
+																				"C",
+																				"Z" ] ] ],
+																"edgecolors" : [ "#000000" ],
+																"edgewidths" : [ 1.0 ],
+																"offsets" : "data01",
+																"yindex" : 1,
+																"id" : "el6949140064258609552",
+																"pathtransforms" : [
+																		[
+																				10.478402806268356,
+																				0.0,
+																				0.0,
+																				10.478402806268356,
+																				0.0,
+																				0.0 ],
+																		[
+																				34.10212376594731,
+																				0.0,
+																				0.0,
+																				34.10212376594731,
+																				0.0,
+																				0.0 ] ],
+																"pathcoordinates" : "display",
+																"offsetcoordinates" : "data",
+																"zorder" : 1,
+																"xindex" : 0,
+																"alphas" : [ 0.3 ],
+																"facecolors" : [
+																		"#7F0000",
+																		"#00007F" ]
+															} ],
+															"xscale" : "linear",
+															"bbox" : [
+																	0.125,
+																	0.099999999999999978,
+																	0.77500000000000002,
+																	0.80000000000000004 ]
+														} ],
+														"height" : 480.0,
+														"width" : 640.0,
+														"plugins" : [
+																{
+																	"type" : "reset"
+																},
+																{
+																	"enabled" : false,
+																	"button" : true,
+																	"type" : "zoom"
+																},
+																{
+																	"enabled" : false,
+																	"button" : true,
+																	"type" : "boxzoom"
+																},
+																{
+																	"voffset" : 10,
+																	"labels" : [
+																			"point 1",
+																			"point 2" ],
+																	"hoffset" : 0,
+																	"location" : "mouse",
+																	"type" : "tooltip",
+																	"id" : "el6949140064258609552"
+																} ],
+														"data" : {
+															"data01" : [
+																	[
+																			-1.3081263884160768,
+																			-0.5084671350588154 ],
+																	[
+																			0.7528189111040033,
+																			0.31801713714383706 ] ]
+														},
+														"id" : "el6949140064277035984"
+													});
+								});
+					});
+		} else {
+			// require.js not available: dynamically load d3 & mpld3
+			mpld3_load_lib(
+					"/d3.js",
+					function() {
+						mpld3_load_lib(
+								"/mpld3.js",
+								function() {
+
+									mpld3
+											.draw_figure(
+													"fig_el69491400642770359848065210481",
+													{
+														"axes" : [ {
+															"xlim" : [ -1.5,
+																	1.0 ],
+															"yscale" : "linear",
+															"axesbg" : "#EEEEEE",
+															"texts" : [ {
+																"v_baseline" : "auto",
+																"h_anchor" : "middle",
+																"color" : "#000000",
+																"text" : "Scatter Plot (with tooltips!)",
+																"coordinates" : "axes",
+																"zorder" : 3,
+																"alpha" : 1,
+																"fontsize" : 20.0,
+																"position" : [
+																		0.5,
+																		1.0144675925925926 ],
+																"rotation" : -0.0,
+																"id" : "el6949140064258922576"
+															} ],
+															"zoomable" : true,
+															"images" : [],
+															"xdomain" : [ -1.5,
+																	1.0 ],
+															"ylim" : [
+																	-0.60000000000000009,
+																	0.39999999999999991 ],
+															"paths" : [],
+															"sharey" : [],
+															"sharex" : [],
+															"axesbgalpha" : null,
+															"axes" : [
+																	{
+																		"scale" : "linear",
+																		"tickformat" : null,
+																		"grid" : {
+																			"color" : "#FFFFFF",
+																			"alpha" : 1.0,
+																			"dasharray" : "10,0",
+																			"gridOn" : true
+																		},
+																		"fontsize" : 12.0,
+																		"position" : "bottom",
+																		"nticks" : 6,
+																		"tickvalues" : null
+																	},
+																	{
+																		"scale" : "linear",
+																		"tickformat" : null,
+																		"grid" : {
+																			"color" : "#FFFFFF",
+																			"alpha" : 1.0,
+																			"dasharray" : "10,0",
+																			"gridOn" : true
+																		},
+																		"fontsize" : 12.0,
+																		"position" : "left",
+																		"nticks" : 7,
+																		"tickvalues" : null
+																	} ],
+															"lines" : [],
+															"markers" : [],
+															"id" : "el6949140064276614032",
+															"ydomain" : [
+																	-0.60000000000000009,
+																	0.39999999999999991 ],
+															"collections" : [ {
+																"paths" : [ [
+																		[
+																				[
+																						0.0,
+																						-0.5 ],
+																				[
+																						0.13260155,
+																						-0.5 ],
+																				[
+																						0.25978993539242673,
+																						-0.44731684579412084 ],
+																				[
+																						0.3535533905932738,
+																						-0.3535533905932738 ],
+																				[
+																						0.44731684579412084,
+																						-0.25978993539242673 ],
+																				[
+																						0.5,
+																						-0.13260155 ],
+																				[
+																						0.5,
+																						0.0 ],
+																				[
+																						0.5,
+																						0.13260155 ],
+																				[
+																						0.44731684579412084,
+																						0.25978993539242673 ],
+																				[
+																						0.3535533905932738,
+																						0.3535533905932738 ],
+																				[
+																						0.25978993539242673,
+																						0.44731684579412084 ],
+																				[
+																						0.13260155,
+																						0.5 ],
+																				[
+																						0.0,
+																						0.5 ],
+																				[
+																						-0.13260155,
+																						0.5 ],
+																				[
+																						-0.25978993539242673,
+																						0.44731684579412084 ],
+																				[
+																						-0.3535533905932738,
+																						0.3535533905932738 ],
+																				[
+																						-0.44731684579412084,
+																						0.25978993539242673 ],
+																				[
+																						-0.5,
+																						0.13260155 ],
+																				[
+																						-0.5,
+																						0.0 ],
+																				[
+																						-0.5,
+																						-0.13260155 ],
+																				[
+																						-0.44731684579412084,
+																						-0.25978993539242673 ],
+																				[
+																						-0.3535533905932738,
+																						-0.3535533905932738 ],
+																				[
+																						-0.25978993539242673,
+																						-0.44731684579412084 ],
+																				[
+																						-0.13260155,
+																						-0.5 ],
+																				[
+																						0.0,
+																						-0.5 ] ],
+																		[
+																				"M",
+																				"C",
+																				"C",
+																				"C",
+																				"C",
+																				"C",
+																				"C",
+																				"C",
+																				"C",
+																				"Z" ] ] ],
+																"edgecolors" : [ "#000000" ],
+																"edgewidths" : [ 1.0 ],
+																"offsets" : "data01",
+																"yindex" : 1,
+																"id" : "el6949140064258609552",
+																"pathtransforms" : [
+																		[
+																				10.478402806268356,
+																				0.0,
+																				0.0,
+																				10.478402806268356,
+																				0.0,
+																				0.0 ],
+																		[
+																				34.10212376594731,
+																				0.0,
+																				0.0,
+																				34.10212376594731,
+																				0.0,
+																				0.0 ] ],
+																"pathcoordinates" : "display",
+																"offsetcoordinates" : "data",
+																"zorder" : 1,
+																"xindex" : 0,
+																"alphas" : [ 0.3 ],
+																"facecolors" : [
+																		"#7F0000",
+																		"#00007F" ]
+															} ],
+															"xscale" : "linear",
+															"bbox" : [
+																	0.125,
+																	0.099999999999999978,
+																	0.77500000000000002,
+																	0.80000000000000004 ]
+														} ],
+														"height" : 480.0,
+														"width" : 640.0,
+														"plugins" : [
+																{
+																	"type" : "reset"
+																},
+																{
+																	"enabled" : false,
+																	"button" : true,
+																	"type" : "zoom"
+																},
+																{
+																	"enabled" : false,
+																	"button" : true,
+																	"type" : "boxzoom"
+																},
+																{
+																	"voffset" : 10,
+																	"labels" : [
+																			"point 1",
+																			"point 2" ],
+																	"hoffset" : 0,
+																	"location" : "mouse",
+																	"type" : "tooltip",
+																	"id" : "el6949140064258609552"
+																} ],
+														"data" : {
+															"data01" : [
+																	[
+																			-1.3081263884160768,
+																			-0.5084671350588154 ],
+																	[
+																			0.7528189111040033,
+																			0.31801713714383706 ] ]
+														},
+														"id" : "el6949140064277035984"
+													});
+								})
+					});
+		}
+	</script>
+</body>
+</html>
