@@ -213,7 +213,7 @@
 					function(d3) {
 						window.d3 = d3;
 						mpld3_load_lib(
-								"/mpld3.js",
+								"lib/mpld3/mpld3.js",
 								function() {
 
 									mpld3
@@ -453,10 +453,10 @@
 		} else {
 			// require.js not available: dynamically load d3 & mpld3
 			mpld3_load_lib(
-					"/d3.js",
+					"lib/mpld3/d3.v3.min.js",
 					function() {
 						mpld3_load_lib(
-								"/mpld3.js",
+								"lib/mpld3/mpld3.v0.2.js",
 								function() {
 
 									mpld3

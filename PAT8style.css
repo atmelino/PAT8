@@ -88,3 +88,38 @@ code {
 	padding-bottom: 5px;
 	padding-left: 10px;
 }
+.tg {
+	border-collapse: collapse;
+	border-spacing: 0;
+	border-color: #bbb;
+	width: 100%;
+}
+
+.tg td {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	padding: 10px 5px;
+	border-style: solid;
+	border-width: 1px;
+	overflow: hidden;
+	word-break: normal;
+	border-color: #bbb;
+	color: #594F4F;
+	background-color: #E0FFEB;
+	/*width: 25%;*/
+	text-align: center;
+}
+
+.tg .tg-bold {
+	vertical-align: top;
+	font-weight: bold;
+}
+
+.tg .tg-it {
+	vertical-align: top;
+	font-style: italic;
+	width: 12.5%;
+}
+
+
+

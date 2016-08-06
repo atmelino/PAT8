@@ -1,4 +1,6 @@
-import matplotlib.pyplot as plt, mpld3
+import matplotlib.pyplot as plt
+import mpld3
+
 fig = plt.figure()
 fid=plt.plot([3,1,4,1,5])
 

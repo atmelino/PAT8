@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+<title>Insert title here</title>
+
+<script type="text/JavaScript" src="applications/ajaxFunctions.js"></script>
+<link rel="stylesheet" type="text/css" href="applications/app.css">
+
+
+<script type="text/javascript">
+	GMearth = 398600.441890000;
+	//GMmoon = 4902.794;
+	GMmoon = 49027.9;
+	central = "Earth";
+
+	function earthMoon01_func() {
+		printlnMessage('messages', "earthMoon01 button");
+		myParams = {
+			py : "earthMoon02.py",
+			central : central,
+			GMearth : $("#GMearth").spinner("value"),
+			GMmoon : $("#GMmoon").spinner("value"),
+			x0 : $("#x0").spinner("value"),
+			y0 : $("#y0").spinner("value"),
+			vx0 : $("#vx0").spinner("value"),
+			vy0 : $("#vy0").spinner("value"),
+			t0 : $("#t0").spinner("value"),
+			deltat : $("#deltat").spinner("value"),
+		};
+
+		ajax_callPython01(myParams);
+	}
+
+	$(document).ready(function() {
+
+		$("#GMearth").spinner({
+			step : 1.0,
+			numberFormat : "n",
+		});
+		$("#GMearth").width(90);
+		$("#GMmoon").spinner({
+			step : 1.0,
+			numberFormat : "n",
+		});
+		$("#GMmoon").width(90);
+		$("#x0").spinner({
+			step : 0.1,
+			numberFormat : "n",
+		});
+		$("#x0").width(80);
+		$("#y0").spinner({
+			step : 0.1,
+			numberFormat : "n",
+		});
+		$("#y0").width(80);
+		$("#vx0").spinner({
+			step : 0.01,
+			numberFormat : "n",
+		});
+		$("#vx0").width(40);
+		$("#vy0").spinner({
+			step : 0.01,
+			numberFormat : "n",
+		});
+		$("#vy0").width(40);
+		$("#t0").spinner({
+			step : 1.0,
+			numberFormat : "n",
+		});
+		$("#t0").width(80);
+		$("#deltat").spinner({
+			step : 1.0,
+			numberFormat : "n",
+		});
+		$("#deltat").width(80);
+
+		$('#GMearth').val(GMearth);
+		$('#GMmoon').val(GMmoon);
+		$('#x0').val("-6678");
+		$('#y0').val("0");
+		$('#vx0').val("0");
+		$('#vy0').val("10.86");
+		$('#t0').val("390000");
+		$('#deltat').val("859200");
+		$('#GMearth').spinner("disable");
+		$('#GMmoon').spinner("disable");
+
+	});
+
+	$(function() {
+
+		$("#earthMoon01doc").click(function() {
+			$("#pageContent").load("applications/earthMoon01doc.html");
+			setCookie('currentPage', 'applications/earthMoon01doc.html', 100);
+
+			// 			MathJax.Hub.Config({
+			// 				tex2jax : {
+			// 					inlineMath : [ [ '$', '$' ], [ '\\(', '\\)' ] ]
+			// 				}
+			// 			});
+
+		});
+
+	});
+</script>
+
+
+
+</head>
+<body>
+
+	<div id="wrapper">
+
+		<div id="plot">plot area</div>
+		<div id="sidebar">
+			<!--  -->
+			<label for="spinner">GMearth:</label> <input id="GMearth" name="value" value="3000.0"> <br>
+			<!--  -->
+			<label for="spinner">GMmoon:</label> <input id="GMmoon" name="value" value="3000.0"> <br>
+			<!--  -->
+			<label for="spinner">x0:</label> <input id="x0" name="value" value="0">km<br>
+			<!--  -->
+			<label for="spinner">y0:</label> <input id="y0" name="value" value="20.00">km<br>
+			<!--  -->
+			<label for="spinner">vx0:</label> <input id="vx0" name="value" value="16.00">km/s<br>
+			<!--  -->
+			<label for="spinner">vy0:</label> <input id="vy0" name="value" value="0.00">km/s<br>
+			<!--  -->
+			<label for="spinner">t0:</label> <input id="t0" name="value" value="0.00">s<br>
+			<!--  -->
+			<label for="spinner">&Delta;t:</label> <input id="deltat" name="value" value="60">s<br>
+			<button id="earthMoon01" onclick="earthMoon01_func()">plot</button>
+			<!--  -->
+			<br> <br> <label id="earthMoon01doc">documentation</label>
+		</div>
+		<div id="cleared"></div>
+	</div>
+
+
+</body>
+</html>

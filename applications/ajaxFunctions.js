@@ -21,7 +21,8 @@ function ajax_callPython01(myParams) {
 	ajaxcallPython01.onreadystatechange = ajaxCalled_callPython01;
 	// printlnMessage('messages', JSON.stringify(myParams));
 	var requeststring;
-	requeststring = "applications/pythonCall.php?json=" + JSON.stringify(myParams);
+	requeststring = "applications/pythonCall.php?json="
+			+ JSON.stringify(myParams);
 	printlnMessage('messages', "ajax: " + requeststring);
 	ajaxcallPython01.open("GET", encodeURI(requeststring), true);
 	ajaxcallPython01.send(null);
@@ -36,7 +37,7 @@ function ajaxCalled_callPython01() {
 		printlnMessage('messages', "response from PHP and python:");
 		printlnMessage('messages', callPython01message);
 		callPython01JSON = JSON.parse(callPython01message);
-		//printlnMessage('messages', callPython01JSON.py);
+		// printlnMessage('messages', callPython01JSON.py);
 
 		if (callPython01JSON.py == "orbitTest01.py") {
 			printlnMessage('messages', "reload image");
@@ -50,5 +51,17 @@ function ajaxCalled_callPython01() {
 			document.getElementById("earthMoon01Image").src = "applications/writeFiles/earthMoon01.png?rnd="
 					+ rnd;
 		}
+
+		if (callPython01JSON.py == "earthMoon02.py") {
+			printlnMessage('messages', "load mpld3 plot");
+
+			// document.getElementById("plot").innerHTML = '<object
+			// type="text/html" data="applications/writeFiles/test.html"
+			// ></object>';
+			//$("#topBar").on("click", function() {
+				$("#plot").load("applications/writeFiles/test.html");
+			//});
+		}
+
 	}
 }
