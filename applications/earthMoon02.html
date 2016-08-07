@@ -10,12 +10,38 @@
 
 <script type="text/javascript">
 	GMearth = 398600.441890000;
-	//GMmoon = 4902.794;
-	GMmoon = 49027.9;
+	GMmoon = 4902.794;
 	central = "Earth";
+
+	myParams1 = {
+			py : "earthMoon02.py",
+			central : central,
+			GMearth : 398600.441890000,
+			GMmoon : 490279,
+			x0 : -6678,
+			y0 : 0,
+			vx0 : 0,
+			vy0 : 10.86,
+			t0 : 390000,
+			deltat : 859200,
+		};
+
+	myParams2 = {
+			py : "earthMoon02.py",
+			central : central,
+			GMearth : 398600.441890000,
+			GMmoon : 49027.9,
+			x0 : -6678,
+			y0 : 0,
+			vx0 : 0,
+			vy0 : 10.82,
+			t0 : 340000,
+			deltat : 220000,
+		};
 
 	function earthMoon01_func() {
 		printlnMessage('messages', "earthMoon01 button");
+
 		myParams = {
 			py : "earthMoon02.py",
 			central : central,
@@ -75,16 +101,17 @@
 		});
 		$("#deltat").width(80);
 
-		$('#GMearth').val(GMearth);
-		$('#GMmoon').val(GMmoon);
-		$('#x0').val("-6678");
-		$('#y0').val("0");
-		$('#vx0').val("0");
-		$('#vy0').val("10.86");
-		$('#t0').val("390000");
-		$('#deltat').val("859200");
+		p = myParams1;
+		$('#GMearth').val(p.GMearth);
+		$('#GMmoon').val(p.GMmoon);
+		$('#x0').val(p.x0);
+		$('#y0').val(p.y0);
+		$('#vx0').val(p.vx0);
+		$('#vy0').val(p.vy0);
+		$('#t0').val(p.t0);
+		$('#deltat').val(p.deltat);
 		$('#GMearth').spinner("disable");
-		$('#GMmoon').spinner("disable");
+		//$('#GMmoon').spinner("disable");
 
 	});
 
@@ -93,12 +120,6 @@
 		$("#earthMoon01doc").click(function() {
 			$("#pageContent").load("applications/earthMoon01doc.html");
 			setCookie('currentPage', 'applications/earthMoon01doc.html', 100);
-
-			// 			MathJax.Hub.Config({
-			// 				tex2jax : {
-			// 					inlineMath : [ [ '$', '$' ], [ '\\(', '\\)' ] ]
-			// 				}
-			// 			});
 
 		});
 
@@ -112,7 +133,6 @@
 
 	<div id="wrapper">
 
-		<div id="plot">plot area</div>
 		<div id="sidebar">
 			<!--  -->
 			<label for="spinner">GMearth:</label> <input id="GMearth" name="value" value="3000.0"> <br>
@@ -134,6 +154,7 @@
 			<!--  -->
 			<br> <br> <label id="earthMoon01doc">documentation</label>
 		</div>
+		<div id="plot">plot area</div>
 		<div id="cleared"></div>
 	</div>
 

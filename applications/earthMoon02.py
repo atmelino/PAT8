@@ -139,7 +139,7 @@ try:
     
     
     mpld3.save_html(fig,"writeFiles/test.html")
-
+    mpld3.fig_to_html(fig, template_type="simple")
     #mpld3.show()
     
 except Exception:
