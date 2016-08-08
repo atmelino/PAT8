@@ -31,7 +31,6 @@ GMmoon=decoded['GMmoon']
 t0=decoded['t0']
 deltat=decoded['deltat']
 
-#f=randint(1,9)
 
 def moonPosition(t):    
     mx=300000*np.sin(m_omega*t)
@@ -74,9 +73,18 @@ def npmin(l):
 
 
 
+if 'cmd' in decoded:
+    cmd=decoded['cmd']
+    t_1=100000
+    print moonPosition(t_1)
+    r_1 = [0, 10000, 0, 0, 0, 0]
+    print acceleration(r_1,t_1)
+    sys.exit()
+
+
 
 try:
-    os.remove("writeFiles/earthMoon01.png")
+    os.remove("writeFiles/earthMoon02.png")
 except Exception: 
     pass
 
@@ -107,7 +115,6 @@ try:
     plt.plot(mx,my)
 
     
-    # fit plot into window
     #ps1=npmax(sol[:, 0])
     #ps2=np.absolute(npmin(sol[:, 0]))
     #ps3=npmax(sol[:, 1])
@@ -117,6 +124,7 @@ try:
     #plt.xlim(-plotsize, plotsize)
     #plt.ylim(-plotsize, plotsize)
     
+    # fit plot into window
     #plotsize=1.01*300000    
     plotsize=1.2*300000    
     plt.xlim(-plotsize, plotsize)
@@ -135,7 +143,7 @@ try:
     plt.ylabel('y')
     plt.title('Earth-Moon')
     plt.grid(True)
-    plt.savefig("writeFiles/earthMoon01.png", bbox_inches='tight')
+    plt.savefig("writeFiles/earthMoon02.png", bbox_inches='tight')
     
     
     mpld3.save_html(fig,"writeFiles/test.html")
