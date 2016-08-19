@@ -1,7 +1,7 @@
 import numpy as np
 #from scipy.optimize import minimize
 import matplotlib.pyplot as plt
-import scipy.optimize  as opt
+import scipy.optimize as opt
 
 def f(x):
     return -(2*x[0]*x[1] + 2*x[0] - x[0]**2 - 2*x[1]**2)
