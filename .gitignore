@@ -1,0 +1,15 @@
+# Blacklist files/folders
+.*
+applications/writeFiles/*
+.Rproj.user
+*.pyc
+
+
+
+# Whitelist some files
+!.gitignore
+!applications/writeFiles/readme
+
+
+
+

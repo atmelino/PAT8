@@ -146,7 +146,7 @@ try:
     plt.savefig("writeFiles/earthMoon02.png", bbox_inches='tight')
     
     
-    mpld3.save_html(fig,"writeFiles/test.html")
+    mpld3.save_html(fig,"writeFiles/earthMoon02Plot.html")
     mpld3.fig_to_html(fig, template_type="simple")
     #mpld3.show()
     

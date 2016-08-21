@@ -59,7 +59,7 @@ function ajaxCalled_callPython01() {
 			// type="text/html" data="applications/writeFiles/test.html"
 			// ></object>';
 			//$("#topBar").on("click", function() {
-				$("#plot").load("applications/writeFiles/test.html");
+				$("#plot").load("applications/writeFiles/earthMoon02Plot.html");
 			//});
 		}
 
