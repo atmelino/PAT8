@@ -59,10 +59,10 @@ def reporter(p):
     """Reporter function to capture intermediate states of optimization."""
     global ps
     ps.append(p)
-    
-    
-    
-    
+
+
+print "Gradient method optimization"
+
 # Initial starting position
 x0 = np.array([4,-4.1])
 
@@ -84,6 +84,3 @@ plt.subplot(122)
 plt.semilogy(range(len(ps)), rosen(ps.T));
     
 plt.show()
-
-
-

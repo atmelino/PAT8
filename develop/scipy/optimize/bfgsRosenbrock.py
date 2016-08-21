@@ -1,7 +1,17 @@
-from scipy.optimize import rosen, rosen_der, rosen_hess
+import os
+import sys
+import glob
+import matplotlib.pyplot as plt
+import numpy as np
+#import pandas as pd
+
+from scipy.optimize import rosen
 import scipy.optimize as opt
 import numpy as np
 import matplotlib.pyplot as plt
+#%matplotlib inline
+#%precision 4
+#plt.style.use('ggplot')
 
 #global ps
 
@@ -12,14 +22,16 @@ def reporter(p):
     ps.append(p)
 
 
-print "Newton method optimization"
+print "BFGS optimization"
 
 # Initial starting position
 x0 = np.array([4,-4.1])
 
 ps = [x0]
-sol=opt.minimize(rosen, x0, method='Newton-CG', jac=rosen_der, hess=rosen_hess, callback=reporter)
+sol=opt.minimize(rosen, x0, method='BFGS', callback=reporter)
 print sol
+
+
 
 x = np.linspace(-5, 5, 100)
 y = np.linspace(-5, 5, 100)
