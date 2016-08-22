@@ -39,6 +39,20 @@
 			deltat : 220000,
 		};
 
+	// print acceleration
+	myParams3 = {
+			py : "earthMoon02.py",
+			central : central,
+			GMearth : 398600.441890000,
+			GMmoon : 0,
+			x0 : -10000,
+			y0 : 0,
+			vx0 : 0,
+			vy0 : 6.3,
+			t0 : 0,
+			deltat : 2500,
+		};
+
 	function earthMoon01_func() {
 		printlnMessage('messages', "earthMoon01 button");
 
@@ -101,7 +115,7 @@
 		});
 		$("#deltat").width(80);
 
-		p = myParams1;
+		p = myParams3;
 		$('#GMearth').val(p.GMearth);
 		$('#GMmoon').val(p.GMmoon);
 		$('#x0').val(p.x0);
