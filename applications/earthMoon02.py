@@ -34,6 +34,7 @@ GMearth = decoded['GMearth']
 GMmoon = decoded['GMmoon']
 t0 = decoded['t0']
 deltat = decoded['deltat']
+plotsize = decoded['plotsize']
 
 
 def moonPosition(t):    
@@ -44,7 +45,7 @@ def moonPosition(t):
     return mr    
     
 def acceleration(r_vec, t):
-    global result_array_pos,result_array_a
+    global result_array_pos, result_array_a
     x, y, z, vx, vy, vz = r_vec
     rE = math.sqrt(x * x + y * y + z * z)    
     rEcubed = rE * rE * rE
@@ -143,7 +144,7 @@ try:
     # fit plot into window
     # plotsize=1.01*300000    
     # plotsize=1.2*300000    
-    plotsize = 20000    
+    #plotsize = 20000    
     
     
     plt.xlim(-plotsize, plotsize)
@@ -162,17 +163,29 @@ try:
     plt.ylabel('y')
     plt.title('Earth-Moon')
     plt.grid(True)
-    # plt.savefig("writeFiles/earthMoon02.png", bbox_inches='tight')
+    
+    # result_array
+    result_array_a *= 1000.0 / result_array_a.max()
+    result_array = np.concatenate((result_array_pos, result_array_a), axis=1)
+    
+    X,Y,Z,U,V,W = zip(*result_array)
+  
+    #soa = np.array([ [-10000, 0, 0, 1000, 0, 0], [-5100   , 8577 , 0 , 513 , -863 , 0], [487, 9943 , 0 , -49 , -1008, 0]]) 
+    #X, Y, Z, U, V, W = zip(*soa)
+
+    # workaround for bug in mpld3:
+    V1=np.negative(V)    
+    Q = plt.quiver(X, Y, U, V1)
+
+    #print'X Y U V', X, Y, U, V
     
     
+    np.savetxt("writeFiles/earthMoon02.csv", result_array, delimiter=",")
+    plt.savefig("writeFiles/earthMoon02.png", bbox_inches='tight')
     mpld3.save_html(fig, "writeFiles/earthMoon02Plot.html")
-    mpld3.fig_to_html(fig, template_type="simple")
+    #mpld3.fig_to_html(fig, template_type="simple")
     # mpld3.show()
     
-    # print result_array
-    result_array_a *= 1000.0 / result_array_a.max()
-    result_array = np.concatenate((result_array_pos, result_array_a),axis=1)
-    np.savetxt("writeFiles/earthMoon02.csv", result_array, delimiter=",")
 
     
 except Exception:

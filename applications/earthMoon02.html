@@ -12,46 +12,50 @@
 	GMearth = 398600.441890000;
 	GMmoon = 4902.794;
 	central = "Earth";
+	plotsize = 1;
 
 	myParams1 = {
-			py : "earthMoon02.py",
-			central : central,
-			GMearth : 398600.441890000,
-			GMmoon : 490279,
-			x0 : -6678,
-			y0 : 0,
-			vx0 : 0,
-			vy0 : 10.86,
-			t0 : 390000,
-			deltat : 859200,
-		};
+		py : "earthMoon02.py",
+		central : central,
+		GMearth : 398600.441890000,
+		GMmoon : 490279,
+		x0 : -6678,
+		y0 : 0,
+		vx0 : 0,
+		vy0 : 10.86,
+		t0 : 390000,
+		deltat : 859200,
+		plotsize : 320000,
+	};
 
 	myParams2 = {
-			py : "earthMoon02.py",
-			central : central,
-			GMearth : 398600.441890000,
-			GMmoon : 49027.9,
-			x0 : -6678,
-			y0 : 0,
-			vx0 : 0,
-			vy0 : 10.82,
-			t0 : 340000,
-			deltat : 220000,
-		};
+		py : "earthMoon02.py",
+		central : central,
+		GMearth : 398600.441890000,
+		GMmoon : 49027.9,
+		x0 : -6678,
+		y0 : 0,
+		vx0 : 0,
+		vy0 : 10.82,
+		t0 : 340000,
+		deltat : 220000,
+		plotsize : 320000,
+	};
 
 	// print acceleration
 	myParams3 = {
-			py : "earthMoon02.py",
-			central : central,
-			GMearth : 398600.441890000,
-			GMmoon : 0,
-			x0 : -10000,
-			y0 : 0,
-			vx0 : 0,
-			vy0 : 6.3,
-			t0 : 0,
-			deltat : 2500,
-		};
+		py : "earthMoon02.py",
+		central : central,
+		GMearth : 398600.441890000,
+		GMmoon : 0,
+		x0 : -10000,
+		y0 : 0,
+		vx0 : 0,
+		vy0 : 6.3,
+		t0 : 0,
+		deltat : 2500,
+		plotsize : 20000,
+	};
 
 	function earthMoon01_func() {
 		printlnMessage('messages', "earthMoon01 button");
@@ -67,6 +71,7 @@
 			vy0 : $("#vy0").spinner("value"),
 			t0 : $("#t0").spinner("value"),
 			deltat : $("#deltat").spinner("value"),
+			plotsize : plotsize,
 		};
 
 		ajax_callPython01(myParams);
@@ -115,7 +120,7 @@
 		});
 		$("#deltat").width(80);
 
-		p = myParams3;
+		p = myParams2;
 		$('#GMearth').val(p.GMearth);
 		$('#GMmoon').val(p.GMmoon);
 		$('#x0').val(p.x0);
@@ -126,7 +131,7 @@
 		$('#deltat').val(p.deltat);
 		$('#GMearth').spinner("disable");
 		//$('#GMmoon').spinner("disable");
-
+		plotsize = p.plotsize;
 	});
 
 	$(function() {
