@@ -42,6 +42,20 @@
 		plotsize : 320000,
 	};
 
+	paramsNearMoon = {
+		py : "earthMoon02.py",
+		central : central,
+		GMearth : 398600.441890000,
+		GMmoon : 49027.9,
+		x0 : 0,
+		y0 : 297000,
+		vx0 : -1.83,
+		vy0 : 0,
+		t0 : 0,
+		deltat : 100000,
+		plotsize : 400000,
+	};
+
 	// print acceleration
 	myParams3 = {
 		py : "earthMoon02.py",
@@ -120,7 +134,8 @@
 		});
 		$("#deltat").width(80);
 
-		p = myParams2;
+		p = paramsNearMoon;
+		//p = myParams1;
 		$('#GMearth').val(p.GMearth);
 		$('#GMmoon').val(p.GMmoon);
 		$('#x0').val(p.x0);

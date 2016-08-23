@@ -1,3 +1,21 @@
+    #vert=[(20000, 40000),(50000, 80000)]
+    # soa = np.array([ [-10000, 0, 0, 1000, 0, 0], [-5100   , 8577 , 0 , 513 , -863 , 0], [487, 9943 , 0 , -49 , -1008, 0]]) 
+        x0 = X[i]
+        y0 = Y[i]
+        x1 = x0 + 50000 * U[i] / mynorm[i]
+        y1 = y0 + 50000 * V[i] / mynorm[i]
+    # result_array
+    # result_array_a *= 10000.0 / result_array_a.max()
+    #xL = xM - x
+    #yL = yM - y
+    #zL = xM - z
+        # print i 
+        # i=400
+        # length=np.linalg.norm(result_array_a)
+    
+    #X, Y, Z, U, V, W = zip(*result_array)
+    # print'X Y U V', X, Y, U, V
+        # 77 182 196
 
     # t = np.arange(0.0, 2.0, 0.01)
     
