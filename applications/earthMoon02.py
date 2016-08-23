@@ -18,14 +18,8 @@ m_omega = 2 * np.pi / m_period
 result_array_pos = np.empty((0, 3))
 result_array_a = np.empty((0, 3))
 
-
-# print 'Argument List:', str(sys.argv)
-# print sys.argv[1:2]
-# print sys.argv[1]
 data = sys.argv[1:2]
 decoded = json.loads(sys.argv[1])
-# print decoded
-# print decoded['x0']
 central = decoded['central']
 x0 = decoded['x0']
 y0 = decoded['y0']
@@ -51,7 +45,6 @@ def acceleration(r_vec, t):
     x, y, z, vx, vy, vz = r_vec
     rE = math.sqrt(x * x + y * y + z * z)    
     rEcubed = rE * rE * rE
-    # GMe_over_r3 = -1.0 * GMearth / rcubed
     GMe_over_r3 = GMearth / rEcubed
     # print r
     xM, yM, zM = moonPosition(t)
@@ -88,7 +81,6 @@ def npmin(l):
     return min_val
 
 
-
 # if called from command line
 if 'cmd' in decoded:
     cmd = decoded['cmd']
@@ -97,8 +89,6 @@ if 'cmd' in decoded:
     r_1 = [0, 10000, 0, 0, 0, 0]
     print acceleration(r_1, t_1)
     sys.exit()
-
-
 
 
 try:
@@ -110,74 +100,28 @@ except Exception:
     pass
 
 try:
-
-    # t = np.arange(0.0, 2.0, 0.01)
-    
     tarray = np.linspace(t0, t0 + deltat, num=100)
-    # print tarray
     mx = 300000 * np.sin(m_omega * tarray)
     my = 300000 * np.cos(m_omega * tarray)
-    # print t
-    # print mx
-    
-    # mr=moonPosition(20000)
-    # print mr
 
     fig = plt.figure()
 
     ax = fig.add_subplot(111, axisbg='#EEEEEE')
     #ax.grid(color='white', linestyle='solid')
 
-
     if central == 'Earth':
         circle1 = plt.Circle((0, 0), 6378, color='#36AFBF')
         # 77 182 196
         plt.gcf().gca().add_artist(circle1)
 
-    # plt.plot(sol[:, 0], sol[:, 1])
-
-    # plt.plot(t,mx)
     plt.plot(mx, my)
 
 
 
-    Path = mpath.Path
-    path_data = [
-        (Path.MOVETO, (10000, 30000)),
-        (Path.LINETO, (70000, -40000)),
-        ]
-    codes, verts = zip(*path_data)
-    path = mpath.Path(verts, codes)
-    patch = mpatches.PathPatch(path, facecolor='r', alpha=0.5)
-    ax.add_patch(patch)
-
-
-    # plot control points and connecting lines
-    x, y = zip(*path.vertices[:-1])
-    points = ax.plot(x, y, 'go', ms=10)
-    line = ax.plot(x, y, '-k')
 
 
 
-    #soa = np.array([ [-10000, 0, 0, 1000, 0, 0], [-5100   , 8577 , 0 , 513 , -863 , 0], [487, 9943 , 0 , -49 , -1008, 0]]) 
 
-
-
-    
-    # ps1=npmax(sol[:, 0])
-    # ps2=np.absolute(npmin(sol[:, 0]))
-    # ps3=npmax(sol[:, 1])
-    # ps4=np.absolute(npmin(sol[:, 1]))
-    # print max(ps1,ps2,ps3,ps4)
-    # plotsize=1.01*max(ps1,ps2,ps3,ps4)    
-    # plt.xlim(-plotsize, plotsize)
-    # plt.ylim(-plotsize, plotsize)
-    
-    # fit plot into window
-    # plotsize=1.01*300000    
-    # plotsize=1.2*300000    
-    # plotsize = 20000    
-    
     
     plt.xlim(-plotsize, plotsize)
     plt.ylim(-plotsize, plotsize)
@@ -195,15 +139,37 @@ try:
     plt.title('Earth-Moon')
     plt.grid(True)
     
-    # result_array
-    result_array_a *= 1000.0 / result_array_a.max()
-    result_array = np.concatenate((result_array_pos, result_array_a), axis=1)
     
-    X, Y, Z, U, V, W = zip(*result_array)
     
-    #line2 = ax.plot(X, Y, '-k')
 
+    Path = mpath.Path
+    code=(Path.MOVETO, Path.LINETO)
+    # result_array
+    result_array_a *= 10000.0 / result_array_a.max()
+    result_array = np.concatenate((result_array_pos, result_array_a), axis=1)
+    X, Y, Z, U, V, W = zip(*result_array)
     # print'X Y U V', X, Y, U, V
+    i=20
+    x0=X[i]
+    y0=Y[i]
+    x1=x0+ U[i]
+    y1=y0+ V[i]
+    print x0,y0,x1,y1
+    vert=[(x0,y0),(x1,y1)]
+    #vert=[(20000, 40000),(50000, 80000)]
+    path = mpath.Path(vert, code)
+    patch = mpatches.PathPatch(path, facecolor='r', alpha=0.5)
+    ax.add_patch(patch)
+
+    
+    
+    #soa = np.array([ [-10000, 0, 0, 1000, 0, 0], [-5100   , 8577 , 0 , 513 , -863 , 0], [487, 9943 , 0 , -49 , -1008, 0]]) 
+
+
+
+
+
+
     
     
     np.savetxt("writeFiles/earthMoon02.csv", result_array, delimiter=",")
