@@ -14,35 +14,7 @@
 	central = "Earth";
 	plotsize = 1;
 
-	myParams1 = {
-		py : "earthMoon02.py",
-		central : central,
-		GMearth : 398600.441890000,
-		GMmoon : 490279,
-		x0 : -6678,
-		y0 : 0,
-		vx0 : 0,
-		vy0 : 10.86,
-		t0 : 390000,
-		deltat : 859200,
-		plotsize : 320000,
-	};
-
-	myParams2 = {
-		py : "earthMoon02.py",
-		central : central,
-		GMearth : 398600.441890000,
-		GMmoon : 49027.9,
-		x0 : -6678,
-		y0 : 0,
-		vx0 : 0,
-		vy0 : 10.82,
-		t0 : 340000,
-		deltat : 220000,
-		plotsize : 320000,
-	};
-
-	paramsNearMoon = {
+	paramsMoonOrbit = {
 		py : "earthMoon02.py",
 		central : central,
 		GMearth : 398600.441890000,
@@ -56,19 +28,32 @@
 		plotsize : 400000,
 	};
 
-	// print acceleration
-	myParams3 = {
+	paramsFreeReturn1 = {
 		py : "earthMoon02.py",
 		central : central,
 		GMearth : 398600.441890000,
-		GMmoon : 0,
-		x0 : -10000,
-		y0 : 0,
-		vx0 : 0,
-		vy0 : 6.3,
+		GMmoon : 49027.9,
+		x0 : 0,
+		y0 : -10000,
+		vx0 : 8.75,
+		vy0 : 0,
+		t0 : -200000,
+		deltat : 600000,
+		plotsize : 400000,
+	};
+
+	paramsPrecession = {
+		py : "earthMoon02.py",
+		central : central,
+		GMearth : 398600.441890000,
+		GMmoon : 49027.9,
+		x0 : 0,
+		y0 : 60000,
+		vx0 : 3.2,
+		vy0 : 0,
 		t0 : 0,
-		deltat : 2500,
-		plotsize : 20000,
+		deltat : 1000000,
+		plotsize : 400000,
 	};
 
 	function earthMoon01_func() {
@@ -89,6 +74,21 @@
 		};
 
 		ajax_callPython01(myParams);
+	}
+
+	function setParams(p) {
+		$('#GMearth').val(p.GMearth);
+		$('#GMmoon').val(p.GMmoon);
+		$('#x0').val(p.x0);
+		$('#y0').val(p.y0);
+		$('#vx0').val(p.vx0);
+		$('#vy0').val(p.vy0);
+		$('#t0').val(p.t0);
+		$('#deltat').val(p.deltat);
+		$('#GMearth').spinner("disable");
+		//$('#GMmoon').spinner("disable");
+		plotsize = p.plotsize;
+
 	}
 
 	$(document).ready(function() {
@@ -134,22 +134,27 @@
 		});
 		$("#deltat").width(80);
 
-		p = paramsNearMoon;
-		//p = myParams1;
-		$('#GMearth').val(p.GMearth);
-		$('#GMmoon').val(p.GMmoon);
-		$('#x0').val(p.x0);
-		$('#y0').val(p.y0);
-		$('#vx0').val(p.vx0);
-		$('#vy0').val(p.vy0);
-		$('#t0').val(p.t0);
-		$('#deltat').val(p.deltat);
-		$('#GMearth').spinner("disable");
-		//$('#GMmoon').spinner("disable");
-		plotsize = p.plotsize;
+		setParams(paramsMoonOrbit);
+
 	});
 
 	$(function() {
+
+		$("#scenario").change(function() {
+			myValue = $("#scenario").val();
+			printlnMessage('messages', myValue);
+			if (myValue == "Moon Orbit") {
+				setParams(paramsMoonOrbit)
+			}
+			if (myValue == "Free Return 1") {
+				setParams(paramsFreeReturn1)
+			}
+			if (myValue == "Precession") {
+				setParams(paramsPrecession)
+			}
+
+			//earthMoon01_func();
+		});
 
 		$("#earthMoon01doc").click(function() {
 			$("#pageContent").load("applications/earthMoon01doc.html");
@@ -168,6 +173,13 @@
 	<div id="wrapper">
 
 		<div id="sidebar">
+			Scenario:<select id="scenario">
+				<option value="Moon Orbit">Moon Orbit</option>
+				<option value="Free Return 1">Free Return 1</option>
+				<option value="Free Return 2">Free Return 2</option>
+				<option value="Precession">Precession</option>
+				<option value="Custom">Custom</option>
+			</select><br>
 			<!--  -->
 			<label for="spinner">GMearth:</label> <input id="GMearth" name="value" value="3000.0"> <br>
 			<!--  -->
