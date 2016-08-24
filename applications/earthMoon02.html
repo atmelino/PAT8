@@ -29,18 +29,32 @@
 	};
 
 	paramsFreeReturn1 = {
-		py : "earthMoon02.py",
-		central : central,
-		GMearth : 398600.441890000,
-		GMmoon : 49027.9,
-		x0 : 0,
-		y0 : -10000,
-		vx0 : 8.75,
-		vy0 : 0,
-		t0 : -200000,
-		deltat : 600000,
-		plotsize : 400000,
-	};
+			py : "earthMoon02.py",
+			central : central,
+			GMearth : 398600.441890000,
+			GMmoon : 49027.9,
+			x0 : 0,
+			y0 : -10000,
+			vx0 : 8.73,
+			vy0 : 0,
+			t0 : -210000,
+			deltat : 700000,
+			plotsize : 400000,
+		};
+
+	paramsFreeReturn2 = {
+			py : "earthMoon02.py",
+			central : central,
+			GMearth : 398600.441890000,
+			GMmoon : 4902.79,
+			x0 : 0,
+			y0 : -10000,
+			vx0 : 8.775,
+			vy0 : 0,
+			t0 : -245000,
+			deltat : 600000,
+			plotsize : 400000,
+		};
 
 	paramsPrecession = {
 		py : "earthMoon02.py",
@@ -148,6 +162,9 @@
 			}
 			if (myValue == "Free Return 1") {
 				setParams(paramsFreeReturn1)
+			}
+			if (myValue == "Free Return 2") {
+				setParams(paramsFreeReturn2)
 			}
 			if (myValue == "Precession") {
 				setParams(paramsPrecession)
