@@ -6,7 +6,26 @@
 </head>
 <body>
 
-	<h2>Installation</h2>
+	# PAT8
+
+	<h2>Server Setup</h2>
+
+	<h3>python modules to install</h3>
+	sudo apt-get install python-visual sudo apt-get install python-matplotlib
+	<br>sudo apt-get install python-numpy
+	<br> sudo apt-get install python-scipy
+	<br>sudo apt-get install python-jinja2
+	<br>sudo apt-get install python-pip
+	<br>sudo pip install mpld3
+
+
+	<h2>Library Versions</h2>
+	Ubuntu 14.04 provides numpy version 1.8.2 and scipy version 0.13.3. Some optimization examples require at least scipy
+	0.14. To upgrade: sudo apt-get install libatlas-base-dev gfortran python-pip sudo pip install --upgrade numpy sudo pip
+	install --upgrade scipy
+
+
+	<h3>Folder Configurations</h3>
 	give www-data user write access
 	<br>
 	<br>
@@ -23,10 +42,6 @@
 	<br>
 	<br>
 	<br>
-	<h3>python modules to install</h3>
-	sudo apt-get install python-matplotlib
-	<br>sudo apt-get install python-numpy
-	<br> sudo apt-get install python-scipy
 	<br>
 	<br> Using matplotlib on web server
 	<br>
@@ -36,14 +51,7 @@
 	Sometimes, a library is not installed.
 
 
-	<h3>Installing pip</h3>
-	sudo apt-get install python-pip
 
-	<h3>Installing mpld3</h3>
-	sudo pip install mpld3
-
-	<h3>Installing jinja2</h3>
-	sudo apt-get install python-jinja2
 
 
 
