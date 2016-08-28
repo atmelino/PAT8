@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery UI Spinner - Possible Alignment Option</title>
+
+
+<link rel="stylesheet" type="text/css"
+	href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="../../../../../lib/jquery-ui-1.10.3/plugins/spinner-layout/jquery.ui.spinner.css">
+<script
+	src="../../../../../lib/jquery-ui-1.10.3/plugins/spinner-layout/jquery.ui.spinner.js"></script>
+
+<!-- <link rel="stylesheet" href="spinner-layout/jquery.ui.spinner.css"> -->
+<!-- <script src="spinner-layout/jquery.ui.spinner.js"></script> -->
+
+
+
+<style>
+h5 {
+	margin-top: 5px;
+}
+
+.controls>span {
+	display: inline-block;
+	margin: 10px;
+}
+
+.size1 input {
+	font-size: 8pt;
+}
+
+.size2 input {
+	font-size: 10pt;
+}
+
+.size3 input {
+	font-size: 14pt;
+}
+
+.right input {
+	width: 3em;
+}
+
+.left input {
+	width: 3em;
+}
+
+.vertical input {
+	width: 1.5em;
+}
+
+.horizontal input {
+	width: 2em;
+}
+</style>
+</head>
+
+<body>
+<div class="discussion">
+	This demo illustrates the alignment option I added to Spinner to
+	provide four layout configurations for the spin controls. The left
+	alignment is shown on the <a
+		href="http://wiki.jqueryui.com/w/page/12138077/Spinner">planning
+		wiki</a> and enables adding other controls to the right side of the widget
+	like a drop menu. The vertical and horizontal options add additional
+	flexibility based on how you might want to use the widget. I created
+	three of each in different font sizes to ensure the widget scales
+	properly with the input field. I have this changed in <a
+		href="https://github.com/bseth99/jquery-ui/tree/spinner-layout">
+		my fork of the project under the spinner-layout branch</a> if you're
+	interested in using it.
+</div>
+
+<h5>Right</h5>
+<div class="right controls">
+	<span class="size1"><input /></span> <span class="size2"><input /></span>
+	<span class="size3"><input /></span>
+</div>
+
+<h5>Left</h5>
+<div class="left controls">
+	<span class="size1"><input /></span> <span class="size2"><input /></span>
+	<span class="size3"><input /></span>
+</div>
+
+<h5>Vertical</h5>
+<div class="vertical controls">
+	<span class="size1"><input /></span> <span class="size2"><input /></span>
+	<span class="size3"><input /></span>
+</div>
+
+<h5>Horizontal</h5>
+<div class="horizontal controls">
+	<span class="size1"><input /></span> <span class="size2"><input /></span>
+	<span class="size3"><input /></span>
+</div>
+
+<script>
+	$(function() {
+		$('.right input').spinner({
+			alignment : 'right'
+		});
+		$('.left input').spinner({
+			alignment : 'left'
+		});
+		$('.vertical input').spinner({
+			alignment : 'vertical'
+		});
+		$('.horizontal input').spinner({
+			alignment : 'horizontal'
+		});
+	});
+</script>
+
+</body>
