@@ -3,13 +3,14 @@
 applications/writeFiles/*
 .Rproj.user
 *.pyc
+META-INF/*
+build.properties
 
 
 
 # Whitelist some files
 !.gitignore
 !applications/writeFiles/readme
-
 
 
 
